@@ -6,7 +6,7 @@
 #
 # GNU Radio Python Flow Graph
 # Title: ZC_RX
-# GNU Radio version: 3.10.11.0
+# GNU Radio version: 3.10.12.0
 
 from PyQt5 import Qt
 from gnuradio import qtgui
@@ -67,19 +67,19 @@ class RX(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.zc_length = zc_length = 839
+        self.zc_length = zc_length = 1399
         self.zc_seq_31 = zc_seq_31 = np.exp(-1j * np.pi *int(31)* np.arange(zc_length) * (np.arange(zc_length) + 1) / zc_length).astype(np.complex64)
         self.zc_seq_25 = zc_seq_25 = np.exp(-1j * np.pi * int(25) * np.arange(zc_length) * (np.arange(zc_length) + 1) / zc_length).astype(np.complex64)
         self.zc_root = zc_root = 25
-        self.samp_rate = samp_rate = 20e6
-        self.gain = gain = 0.6
-        self.freq = freq = 917e6
+        self.samp_rate = samp_rate = 10e6
+        self.gain = gain = 0.8
+        self.freq = freq = 1400e6
 
         ##################################################
         # Blocks
         ##################################################
 
-        self._gain_range = qtgui.Range(0, 1, 0.05, 0.6, 200)
+        self._gain_range = qtgui.Range(0, 1, 0.01, 0.8, 200)
         self._gain_win = qtgui.RangeWidget(self._gain_range, self.set_gain, "'gain'", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._gain_win)
         self.uhd_usrp_source_0 = uhd.usrp_source(
@@ -116,59 +116,8 @@ class RX(gr.top_block, Qt.QWidget):
         self.uhd_usrp_sink_0.set_antenna("TX/RX", 0)
         self.uhd_usrp_sink_0.set_bandwidth(samp_rate, 0)
         self.uhd_usrp_sink_0.set_normalized_gain(gain, 0)
-        self.qtgui_time_sink_x_0_0_1 = qtgui.time_sink_c(
-            1024, #size
-            samp_rate, #samp_rate
-            "Input", #name
-            1, #number of inputs
-            None # parent
-        )
-        self.qtgui_time_sink_x_0_0_1.set_update_time(1)
-        self.qtgui_time_sink_x_0_0_1.set_y_axis(-1.5, 1.5)
-
-        self.qtgui_time_sink_x_0_0_1.set_y_label('Amplitude', "")
-
-        self.qtgui_time_sink_x_0_0_1.enable_tags(True)
-        self.qtgui_time_sink_x_0_0_1.set_trigger_mode(qtgui.TRIG_MODE_NORM, qtgui.TRIG_SLOPE_POS, 0.8, 0, 0, "")
-        self.qtgui_time_sink_x_0_0_1.enable_autoscale(True)
-        self.qtgui_time_sink_x_0_0_1.enable_grid(False)
-        self.qtgui_time_sink_x_0_0_1.enable_axis_labels(True)
-        self.qtgui_time_sink_x_0_0_1.enable_control_panel(False)
-        self.qtgui_time_sink_x_0_0_1.enable_stem_plot(False)
-
-
-        labels = ['Signal 1', 'Signal 2', 'Signal 3', 'Signal 4', 'Signal 5',
-            'Signal 6', 'Signal 7', 'Signal 8', 'Signal 9', 'Signal 10']
-        widths = [1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1]
-        colors = ['blue', 'red', 'green', 'black', 'cyan',
-            'magenta', 'yellow', 'dark red', 'dark green', 'dark blue']
-        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
-            1.0, 1.0, 1.0, 1.0, 1.0]
-        styles = [1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1]
-        markers = [-1, -1, -1, -1, -1,
-            -1, -1, -1, -1, -1]
-
-
-        for i in range(2):
-            if len(labels[i]) == 0:
-                if (i % 2 == 0):
-                    self.qtgui_time_sink_x_0_0_1.set_line_label(i, "Re{{Data {0}}}".format(i/2))
-                else:
-                    self.qtgui_time_sink_x_0_0_1.set_line_label(i, "Im{{Data {0}}}".format(i/2))
-            else:
-                self.qtgui_time_sink_x_0_0_1.set_line_label(i, labels[i])
-            self.qtgui_time_sink_x_0_0_1.set_line_width(i, widths[i])
-            self.qtgui_time_sink_x_0_0_1.set_line_color(i, colors[i])
-            self.qtgui_time_sink_x_0_0_1.set_line_style(i, styles[i])
-            self.qtgui_time_sink_x_0_0_1.set_line_marker(i, markers[i])
-            self.qtgui_time_sink_x_0_0_1.set_line_alpha(i, alphas[i])
-
-        self._qtgui_time_sink_x_0_0_1_win = sip.wrapinstance(self.qtgui_time_sink_x_0_0_1.qwidget(), Qt.QWidget)
-        self.top_layout.addWidget(self._qtgui_time_sink_x_0_0_1_win)
         self.qtgui_time_sink_x_0_0 = qtgui.time_sink_f(
-            (6*zc_length), #size
+            zc_length, #size
             samp_rate, #samp_rate
             "Convlution output", #name
             1, #number of inputs
@@ -215,51 +164,9 @@ class RX(gr.top_block, Qt.QWidget):
 
         self._qtgui_time_sink_x_0_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0_0.qwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_0_0_win)
-        self.qtgui_freq_sink_x_0_0_0 = qtgui.freq_sink_c(
-            1024, #size
-            window.WIN_BLACKMAN_hARRIS, #wintype
-            0, #fc
-            (samp_rate*2), #bw
-            "Input", #name
-            1,
-            None # parent
-        )
-        self.qtgui_freq_sink_x_0_0_0.set_update_time(1)
-        self.qtgui_freq_sink_x_0_0_0.set_y_axis((-140), 10)
-        self.qtgui_freq_sink_x_0_0_0.set_y_label('Relative Gain', 'dB')
-        self.qtgui_freq_sink_x_0_0_0.set_trigger_mode(qtgui.TRIG_MODE_AUTO, -35, 0, "")
-        self.qtgui_freq_sink_x_0_0_0.enable_autoscale(False)
-        self.qtgui_freq_sink_x_0_0_0.enable_grid(True)
-        self.qtgui_freq_sink_x_0_0_0.set_fft_average(1.0)
-        self.qtgui_freq_sink_x_0_0_0.enable_axis_labels(True)
-        self.qtgui_freq_sink_x_0_0_0.enable_control_panel(False)
-        self.qtgui_freq_sink_x_0_0_0.set_fft_window_normalized(False)
-
-
-
-        labels = ['', '', '', '', '',
-            '', '', '', '', '']
-        widths = [1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1]
-        colors = ["blue", "red", "green", "black", "cyan",
-            "magenta", "yellow", "dark red", "dark green", "dark blue"]
-        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
-            1.0, 1.0, 1.0, 1.0, 1.0]
-
-        for i in range(1):
-            if len(labels[i]) == 0:
-                self.qtgui_freq_sink_x_0_0_0.set_line_label(i, "Data {0}".format(i))
-            else:
-                self.qtgui_freq_sink_x_0_0_0.set_line_label(i, labels[i])
-            self.qtgui_freq_sink_x_0_0_0.set_line_width(i, widths[i])
-            self.qtgui_freq_sink_x_0_0_0.set_line_color(i, colors[i])
-            self.qtgui_freq_sink_x_0_0_0.set_line_alpha(i, alphas[i])
-
-        self._qtgui_freq_sink_x_0_0_0_win = sip.wrapinstance(self.qtgui_freq_sink_x_0_0_0.qwidget(), Qt.QWidget)
-        self.top_layout.addWidget(self._qtgui_freq_sink_x_0_0_0_win)
         self.fft_filter_xxx_0 = filter.fft_filter_ccc(1, np.conj(zc_seq_25[::-1]), 1)
         self.fft_filter_xxx_0.declare_sample_delay(0)
-        self.epy_block_0 = epy_block_0.rtt_responder_advanced(zc_seq=zc_seq_31, samp_rate=samp_rate, delay_secs=0.005, zc_length=zc_length, k_peak2noise=50, fixed_threshold=400)
+        self.epy_block_0 = epy_block_0.rtt_responder_advanced(zc_seq=zc_seq_31, samp_rate=samp_rate, delay_secs=0.005, zc_length=zc_length, k_peak2noise=25, fixed_threshold=150)
         self.blocks_complex_to_mag_0 = blocks.complex_to_mag(1)
 
 
@@ -271,8 +178,6 @@ class RX(gr.top_block, Qt.QWidget):
         self.connect((self.fft_filter_xxx_0, 0), (self.blocks_complex_to_mag_0, 0))
         self.connect((self.fft_filter_xxx_0, 0), (self.epy_block_0, 0))
         self.connect((self.uhd_usrp_source_0, 0), (self.fft_filter_xxx_0, 0))
-        self.connect((self.uhd_usrp_source_0, 0), (self.qtgui_freq_sink_x_0_0_0, 0))
-        self.connect((self.uhd_usrp_source_0, 0), (self.qtgui_time_sink_x_0_0_1, 0))
 
 
     def closeEvent(self, event):
@@ -318,9 +223,7 @@ class RX(gr.top_block, Qt.QWidget):
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
         self.epy_block_0.samp_rate = self.samp_rate
-        self.qtgui_freq_sink_x_0_0_0.set_frequency_range(0, (self.samp_rate*2))
         self.qtgui_time_sink_x_0_0.set_samp_rate(self.samp_rate)
-        self.qtgui_time_sink_x_0_0_1.set_samp_rate(self.samp_rate)
         self.uhd_usrp_sink_0.set_samp_rate(self.samp_rate)
         self.uhd_usrp_sink_0.set_bandwidth(self.samp_rate, 0)
         self.uhd_usrp_source_0.set_samp_rate(self.samp_rate)

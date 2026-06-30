@@ -37,7 +37,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: 917e6
+    value: 1400e6
   states:
     bus_sink: false
     bus_source: false
@@ -55,15 +55,15 @@ blocks:
     orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
-    step: '0.05'
+    step: '0.01'
     stop: '1'
-    value: '0.6'
+    value: '0.8'
     widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [992, 160.0]
+    coordinate: [888, 32.0]
     rotation: 0
     state: enabled
 - name: samp_rate
@@ -82,7 +82,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '839'
+    value: '1399'
   states:
     bus_sink: false
     bus_source: false
@@ -142,7 +142,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1384, 128.0]
+    coordinate: [1408, 96.0]
     rotation: 0
     state: disabled
 - name: blocks_complex_to_mag_0
@@ -171,12 +171,12 @@ blocks:
       \        fixed_threshold=200,\n    ):\n        gr.basic_block.__init__(\n  \
       \          self,\n            name=\"RTT Responder Advanced\",\n           \
       \ in_sig=[np.complex64],\n            out_sig=[np.complex64],\n        )\n \
-      \       self.responder_id = 0x01  # Unique ID for this responder\n        self.zc_seq\
+      \       self.responder_id = 0x02  # Unique ID for this responder\n        self.zc_seq\
       \ = zc_seq\n        self.samp_rate = samp_rate\n        self.delay = delay_secs\n\
       \        self.zc_length = zc_length\n        self.k_peak2noise = k_peak2noise\n\
       \        self.fixed_threshold = fixed_threshold\n        self.transmit_num =\
       \ 0\n        self.measurement_number = 0\n\n        self.last_rx_time = None\n\
-      \        self.last_tag_offset = 0\n\n        self.cooldown_secs = 0.05  # Wait\
+      \        self.last_tag_offset = 0\n\n        self.cooldown_secs = 0.001  # Wait\
       \ 50 ms before sending again\n        self.cooldown_samples = int(self.cooldown_secs\
       \ * self.samp_rate)\n\n        # Do not allow a reply too close to the start\
       \ of the stream.\n        self.next_allowed_tx_offset = int(0.01 * self.samp_rate)\n\
@@ -229,8 +229,8 @@ blocks:
       \n        self.next_allowed_tx_offset = current_peak_offset + self.cooldown_samples\n\
       \n        to_produce = self.output_burst_chunk(out)\n\n        self.consume(0,\
       \ n_input)\n        self.produce(0, to_produce)\n        return gr.WORK_CALLED_PRODUCE\n\
-      \n    def generate_bpsk(self, bits, sps):\n        symbols = [(-1.0 + 0j) if\
-      \ int(b) else (1.0 + 0j) for b in bits]\n        sym_array = np.asarray(symbols,\
+      \n    def generate_bpsk(self, bits, sps):\n        symbols = [(-0.7 + 0j) if\
+      \ int(b) else (0.7 + 0j) for b in bits]\n        sym_array = np.asarray(symbols,\
       \ dtype=np.complex64)\n        return np.repeat(sym_array, sps)\n\n    def find_peak_indices(self,\
       \ in_sig):\n        magnitude = in_sig\n        noise_floor = np.mean(magnitude)\n\
       \        threshold = max(noise_floor * self.k_peak2noise, self.fixed_threshold)\n\
@@ -273,8 +273,8 @@ blocks:
     alias: ''
     comment: ''
     delay_secs: '0.005'
-    fixed_threshold: '400'
-    k_peak2noise: '50'
+    fixed_threshold: '150'
+    k_peak2noise: '25'
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
@@ -466,7 +466,7 @@ blocks:
     autoscale: 'False'
     average: '1.0'
     axislabels: 'True'
-    bw: samp_rate*2
+    bw: 2*samp_rate
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -480,7 +480,7 @@ blocks:
     comment: ''
     ctrlpanel: 'False'
     fc: '0'
-    fftsize: '1024'
+    fftsize: '512'
     freqhalf: 'True'
     grid: 'True'
     gui_hint: ''
@@ -503,7 +503,7 @@ blocks:
     norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
-    tr_level: '-35'
+    tr_level: '0'
     tr_mode: qtgui.TRIG_MODE_AUTO
     tr_tag: '""'
     type: complex
@@ -528,7 +528,7 @@ blocks:
     bus_structure: null
     coordinate: [400, 408.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: qtgui_time_sink_x_0_0
   id: qtgui_time_sink_x
   parameters:
@@ -584,7 +584,7 @@ blocks:
     marker9: '-1'
     name: '"Convlution output"'
     nconnections: '1'
-    size: 6*zc_length
+    size: zc_length
     srate: samp_rate
     stemplot: 'False'
     style1: '1'
@@ -623,7 +623,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1184, 232.0]
+    coordinate: [1144, 264.0]
     rotation: 0
     state: enabled
 - name: qtgui_time_sink_x_0_0_0
@@ -819,7 +819,7 @@ blocks:
     bus_structure: null
     coordinate: [392, 272.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: qtgui_time_sink_x_0_0_1_0
   id: qtgui_time_sink_x
   parameters:
@@ -1191,7 +1191,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1376, 500.0]
+    coordinate: [1624, 476.0]
     rotation: 0
     state: enabled
 - name: uhd_usrp_source_0
@@ -1647,4 +1647,4 @@ connections:
 
 metadata:
   file_format: 1
-  grc_version: 3.10.11.0
+  grc_version: 3.10.12.0
