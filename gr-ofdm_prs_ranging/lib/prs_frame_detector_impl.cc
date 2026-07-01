@@ -1,0 +1,244 @@
+/* -*- c++ -*- */
+/*
+ * Copyright 2026 GNU Radio ZC TWR contributors.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+#include "prs_frame_detector_impl.h"
+#include <gnuradio/io_signature.h>
+#include <algorithm>
+#include <cmath>
+
+namespace gr {
+namespace ofdm_prs_ranging {
+
+prs_frame_detector::sptr prs_frame_detector::make(double samp_rate,
+                                                  int fft_len,
+                                                  int cp_len,
+                                                  int active_bins,
+                                                  int prs_symbols,
+                                                  int preamble_len,
+                                                  int preamble_repeats,
+                                                  int coarse_sync_len,
+                                                  int zero_guard_len,
+                                                  int tail_guard_len,
+                                                  float threshold,
+                                                  int min_frame_gap)
+{
+    return gnuradio::make_block_sptr<prs_frame_detector_impl>(samp_rate,
+                                                              fft_len,
+                                                              cp_len,
+                                                              active_bins,
+                                                              prs_symbols,
+                                                              preamble_len,
+                                                              preamble_repeats,
+                                                              coarse_sync_len,
+                                                              zero_guard_len,
+                                                              tail_guard_len,
+                                                              threshold,
+                                                              min_frame_gap);
+}
+
+prs_frame_detector_impl::prs_frame_detector_impl(double samp_rate,
+                                                 int fft_len,
+                                                 int cp_len,
+                                                 int active_bins,
+                                                 int prs_symbols,
+                                                 int preamble_len,
+                                                 int preamble_repeats,
+                                                 int coarse_sync_len,
+                                                 int zero_guard_len,
+                                                 int tail_guard_len,
+                                                 float threshold,
+                                                 int min_frame_gap)
+    : gr::block("prs_frame_detector",
+                gr::io_signature::make(1, 1, sizeof(gr_complex)),
+                gr::io_signature::make(0, 0, 0)),
+      d_threshold(threshold),
+      d_min_frame_gap(min_frame_gap),
+      d_buffer_abs_start(0),
+      d_total_seen(0),
+      d_next_frame_id(0),
+      d_last_frame_start(-min_frame_gap),
+      d_have_rx_time(false),
+      d_rx_time_tag_offset(0),
+      d_rx_time_secs(0),
+      d_rx_time_frac(0.0)
+{
+    d_cfg.samp_rate = samp_rate;
+    d_cfg.fft_len = fft_len;
+    d_cfg.cp_len = cp_len;
+    d_cfg.active_bins = active_bins;
+    d_cfg.prs_symbols = prs_symbols;
+    d_cfg.preamble_len = preamble_len;
+    d_cfg.preamble_repeats = preamble_repeats;
+    d_cfg.coarse_sync_len = coarse_sync_len;
+    d_cfg.zero_guard_len = zero_guard_len;
+    d_cfg.tail_guard_len = tail_guard_len;
+    d_coarse = coarse_sync_sequence(d_cfg.coarse_sync_len);
+    message_port_register_out(pmt::mp("frame_out"));
+}
+
+void prs_frame_detector_impl::forecast(int noutput_items, gr_vector_int& ninput_items_required)
+{
+    (void)noutput_items;
+    ninput_items_required[0] = 1;
+}
+
+void prs_frame_detector_impl::update_rx_time_tags(uint64_t abs_start, uint64_t abs_stop)
+{
+    std::vector<tag_t> tags;
+    get_tags_in_range(tags, 0, abs_start, abs_stop, pmt::mp("rx_time"));
+    for (const auto& tag : tags) {
+        if (pmt::is_tuple(tag.value) && pmt::length(tag.value) >= 2) {
+            d_rx_time_tag_offset = tag.offset;
+            const auto secs = pmt::tuple_ref(tag.value, 0);
+            const auto frac = pmt::tuple_ref(tag.value, 1);
+            d_rx_time_secs = pmt::is_uint64(secs) ? pmt::to_uint64(secs)
+                                                  : static_cast<uint64_t>(pmt::to_long(secs));
+            d_rx_time_frac = pmt::to_double(frac);
+            d_have_rx_time = true;
+        }
+    }
+}
+
+bool prs_frame_detector_impl::find_frame(size_t& frame_start_index,
+                                         size_t& coarse_index,
+                                         float& metric)
+{
+    const int flen = frame_len(d_cfg);
+    const int coarse_rel = d_cfg.zero_guard_len + d_cfg.preamble_len * d_cfg.preamble_repeats;
+    if (d_buffer.size() < static_cast<size_t>(flen)) {
+        return false;
+    }
+
+    float best_metric = 0.0f;
+    size_t best_coarse = 0;
+    const size_t max_coarse = d_buffer.size() - d_cfg.coarse_sync_len;
+    for (size_t c = static_cast<size_t>(coarse_rel); c <= max_coarse; ++c) {
+        if (c < static_cast<size_t>(coarse_rel)) {
+            continue;
+        }
+        const size_t start = c - coarse_rel;
+        if (start + static_cast<size_t>(flen) > d_buffer.size()) {
+            continue;
+        }
+        const int64_t abs_start = static_cast<int64_t>(d_buffer_abs_start + start);
+        if (abs_start - d_last_frame_start < d_min_frame_gap) {
+            continue;
+        }
+
+        gr_complex corr(0.0f, 0.0f);
+        double power = 0.0;
+        for (int i = 0; i < d_cfg.coarse_sync_len; ++i) {
+            const auto sample = d_buffer[c + i];
+            corr += sample * std::conj(d_coarse[i]);
+            power += std::norm(sample);
+        }
+        const double denom = std::sqrt(power * static_cast<double>(d_cfg.coarse_sync_len));
+        const float m = denom > 0.0 ? static_cast<float>(std::abs(corr) / denom) : 0.0f;
+        if (m > best_metric) {
+            best_metric = m;
+            best_coarse = c;
+        }
+    }
+
+    if (best_metric < d_threshold) {
+        return false;
+    }
+    coarse_index = best_coarse;
+    frame_start_index = best_coarse - coarse_rel;
+    metric = best_metric;
+    return true;
+}
+
+void prs_frame_detector_impl::publish_frame(size_t frame_start_index,
+                                            size_t coarse_index,
+                                            float metric)
+{
+    const int flen = frame_len(d_cfg);
+    const uint64_t abs_start = d_buffer_abs_start + frame_start_index;
+    const uint64_t coarse_abs = d_buffer_abs_start + coarse_index;
+    std::vector<gr_complex> frame(d_buffer.begin() + frame_start_index,
+                                  d_buffer.begin() + frame_start_index + flen);
+    gr_complex cfo_corr(0.0f, 0.0f);
+    const int preamble_start = d_cfg.zero_guard_len;
+    const int preamble_span = d_cfg.preamble_len * (d_cfg.preamble_repeats - 1);
+    for (int i = 0; i < preamble_span; ++i) {
+        cfo_corr += std::conj(frame[preamble_start + i]) *
+                    frame[preamble_start + i + d_cfg.preamble_len];
+    }
+    const double cfo_hz = std::atan2(cfo_corr.imag(), cfo_corr.real()) *
+                          d_cfg.samp_rate /
+                          (2.0 * 3.141592653589793238462643383279502884 *
+                           d_cfg.preamble_len);
+
+    pmt::pmt_t meta = pmt::make_dict();
+    meta = pmt::dict_add(meta, pmt::mp("frame_id"), pmt::from_uint64(d_next_frame_id++));
+    meta = pmt::dict_add(meta, pmt::mp("absolute_sample_index"), pmt::from_uint64(abs_start));
+    meta = pmt::dict_add(meta, pmt::mp("frame_start"), pmt::from_uint64(abs_start));
+    meta = pmt::dict_add(meta, pmt::mp("coarse_peak"), pmt::from_uint64(coarse_abs));
+    meta = pmt::dict_add(meta, pmt::mp("peak_metric"), pmt::from_double(metric));
+    meta = pmt::dict_add(meta, pmt::mp("cfo"), pmt::from_double(cfo_hz));
+    meta = pmt::dict_add(meta, pmt::mp("samp_rate"), pmt::from_double(d_cfg.samp_rate));
+    meta = pmt::dict_add(meta, pmt::mp("fft_len"), pmt::from_long(d_cfg.fft_len));
+    meta = pmt::dict_add(meta, pmt::mp("cp_len"), pmt::from_long(d_cfg.cp_len));
+    meta = pmt::dict_add(meta, pmt::mp("active_bins"), pmt::from_long(d_cfg.active_bins));
+    meta = pmt::dict_add(meta, pmt::mp("prs_symbols"), pmt::from_long(d_cfg.prs_symbols));
+    meta = pmt::dict_add(meta, pmt::mp("prs_start_rel"), pmt::from_long(prs_start_offset(d_cfg)));
+    meta = pmt::dict_add(meta, pmt::mp("prs_len"), pmt::from_long(prs_len(d_cfg)));
+    if (d_have_rx_time) {
+        const double rx_time =
+            static_cast<double>(d_rx_time_secs) + d_rx_time_frac +
+            static_cast<double>(abs_start - d_rx_time_tag_offset) / d_cfg.samp_rate;
+        meta = pmt::dict_add(meta,
+                             pmt::mp("rx_time"),
+                             pmt::make_tuple(pmt::from_uint64(static_cast<uint64_t>(std::floor(rx_time))),
+                                             pmt::from_double(rx_time - std::floor(rx_time))));
+        meta = pmt::dict_add(meta, pmt::mp("rx_time_tag_offset"), pmt::from_uint64(d_rx_time_tag_offset));
+    }
+
+    message_port_pub(pmt::mp("frame_out"),
+                     pmt::cons(meta, pmt::init_c32vector(frame.size(), frame)));
+    d_last_frame_start = static_cast<int64_t>(abs_start);
+}
+
+int prs_frame_detector_impl::general_work(int noutput_items,
+                                          gr_vector_int& ninput_items,
+                                          gr_vector_const_void_star& input_items,
+                                          gr_vector_void_star& output_items)
+{
+    (void)noutput_items;
+    (void)output_items;
+    const auto in = static_cast<const gr_complex*>(input_items[0]);
+    const int ninput = ninput_items[0];
+    const uint64_t abs_start = nitems_read(0);
+    update_rx_time_tags(abs_start, abs_start + ninput);
+
+    d_buffer.insert(d_buffer.end(), in, in + ninput);
+    d_total_seen += ninput;
+
+    size_t frame_start = 0;
+    size_t coarse = 0;
+    float metric = 0.0f;
+    while (find_frame(frame_start, coarse, metric)) {
+        publish_frame(frame_start, coarse, metric);
+        const size_t drop = frame_start + static_cast<size_t>(frame_len(d_cfg));
+        d_buffer.erase(d_buffer.begin(), d_buffer.begin() + drop);
+        d_buffer_abs_start += drop;
+    }
+
+    const size_t keep = static_cast<size_t>(frame_len(d_cfg) + d_cfg.coarse_sync_len);
+    if (d_buffer.size() > keep) {
+        const size_t drop = d_buffer.size() - keep;
+        d_buffer.erase(d_buffer.begin(), d_buffer.begin() + drop);
+        d_buffer_abs_start += drop;
+    }
+
+    consume_each(ninput);
+    return 0;
+}
+
+} // namespace ofdm_prs_ranging
+} // namespace gr

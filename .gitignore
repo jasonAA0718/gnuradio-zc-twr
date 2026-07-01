@@ -18,6 +18,7 @@ __pycache__/
 *.iq
 *.complex
 *.fc32
+*.c64
 
 # Large experiment folders
 logs/*

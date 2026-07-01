@@ -1,0 +1,31 @@
+file(REMOVE_RECURSE
+  ".1.0.0"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/link.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_burst_scheduler.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_burst_scheduler.cc.o.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_channel_estimator_impl.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_channel_estimator_impl.cc.o.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_csv_logger_impl.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_csv_logger_impl.cc.o.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_fft_receiver_impl.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_fft_receiver_impl.cc.o.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_frame_builder.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_frame_builder.cc.o.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_frame_detector_impl.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_frame_detector_impl.cc.o.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_phase_slope_estimator_impl.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_phase_slope_estimator_impl.cc.o.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_receiver_utils.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_receiver_utils.cc.o.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_timed_burst_source_impl.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_timed_burst_source_impl.cc.o.d"
+  "libgnuradio-ofdm_prs_ranging.pdb"
+  "libgnuradio-ofdm_prs_ranging.so"
+  "libgnuradio-ofdm_prs_ranging.so.1.0.0"
+  "libgnuradio-ofdm_prs_ranging.so.1.0.0.0"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/gnuradio-ofdm_prs_ranging.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
