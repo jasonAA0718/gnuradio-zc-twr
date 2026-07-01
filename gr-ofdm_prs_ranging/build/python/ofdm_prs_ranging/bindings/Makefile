@@ -319,6 +319,54 @@ prs_phase_slope_estimator_python.cc.s:
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_phase_slope_estimator_python.cc.s
 .PHONY : prs_phase_slope_estimator_python.cc.s
 
+prs_ssrtt_responder_python.o: prs_ssrtt_responder_python.cc.o
+.PHONY : prs_ssrtt_responder_python.o
+
+# target to build an object file
+prs_ssrtt_responder_python.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o
+.PHONY : prs_ssrtt_responder_python.cc.o
+
+prs_ssrtt_responder_python.i: prs_ssrtt_responder_python.cc.i
+.PHONY : prs_ssrtt_responder_python.i
+
+# target to preprocess a source file
+prs_ssrtt_responder_python.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.i
+.PHONY : prs_ssrtt_responder_python.cc.i
+
+prs_ssrtt_responder_python.s: prs_ssrtt_responder_python.cc.s
+.PHONY : prs_ssrtt_responder_python.s
+
+# target to generate assembly for a file
+prs_ssrtt_responder_python.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.s
+.PHONY : prs_ssrtt_responder_python.cc.s
+
+prs_ssrtt_solver_python.o: prs_ssrtt_solver_python.cc.o
+.PHONY : prs_ssrtt_solver_python.o
+
+# target to build an object file
+prs_ssrtt_solver_python.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o
+.PHONY : prs_ssrtt_solver_python.cc.o
+
+prs_ssrtt_solver_python.i: prs_ssrtt_solver_python.cc.i
+.PHONY : prs_ssrtt_solver_python.i
+
+# target to preprocess a source file
+prs_ssrtt_solver_python.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.i
+.PHONY : prs_ssrtt_solver_python.cc.i
+
+prs_ssrtt_solver_python.s: prs_ssrtt_solver_python.cc.s
+.PHONY : prs_ssrtt_solver_python.s
+
+# target to generate assembly for a file
+prs_ssrtt_solver_python.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.s
+.PHONY : prs_ssrtt_solver_python.cc.s
+
 prs_timed_burst_source_python.o: prs_timed_burst_source_python.cc.o
 .PHONY : prs_timed_burst_source_python.o
 
@@ -397,6 +445,12 @@ help:
 	@echo "... prs_phase_slope_estimator_python.o"
 	@echo "... prs_phase_slope_estimator_python.i"
 	@echo "... prs_phase_slope_estimator_python.s"
+	@echo "... prs_ssrtt_responder_python.o"
+	@echo "... prs_ssrtt_responder_python.i"
+	@echo "... prs_ssrtt_responder_python.s"
+	@echo "... prs_ssrtt_solver_python.o"
+	@echo "... prs_ssrtt_solver_python.i"
+	@echo "... prs_ssrtt_solver_python.s"
 	@echo "... prs_timed_burst_source_python.o"
 	@echo "... prs_timed_burst_source_python.i"
 	@echo "... prs_timed_burst_source_python.s"

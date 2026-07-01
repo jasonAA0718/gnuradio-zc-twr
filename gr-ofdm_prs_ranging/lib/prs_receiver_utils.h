@@ -26,7 +26,7 @@ struct prs_rx_config {
     int preamble_len = 128;
     int preamble_repeats = 16;
     int coarse_sync_len = 839;
-    int payload_len = 256;
+    int payload_len = 616;
     int zero_guard_len = 1000;
     int tail_guard_len = 1000;
     uint32_t seed = 13990001;

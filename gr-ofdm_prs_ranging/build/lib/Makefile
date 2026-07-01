@@ -418,6 +418,54 @@ prs_receiver_utils.cc.s:
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_receiver_utils.cc.s
 .PHONY : prs_receiver_utils.cc.s
 
+prs_ssrtt_responder_impl.o: prs_ssrtt_responder_impl.cc.o
+.PHONY : prs_ssrtt_responder_impl.o
+
+# target to build an object file
+prs_ssrtt_responder_impl.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_responder_impl.cc.o
+.PHONY : prs_ssrtt_responder_impl.cc.o
+
+prs_ssrtt_responder_impl.i: prs_ssrtt_responder_impl.cc.i
+.PHONY : prs_ssrtt_responder_impl.i
+
+# target to preprocess a source file
+prs_ssrtt_responder_impl.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_responder_impl.cc.i
+.PHONY : prs_ssrtt_responder_impl.cc.i
+
+prs_ssrtt_responder_impl.s: prs_ssrtt_responder_impl.cc.s
+.PHONY : prs_ssrtt_responder_impl.s
+
+# target to generate assembly for a file
+prs_ssrtt_responder_impl.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_responder_impl.cc.s
+.PHONY : prs_ssrtt_responder_impl.cc.s
+
+prs_ssrtt_solver_impl.o: prs_ssrtt_solver_impl.cc.o
+.PHONY : prs_ssrtt_solver_impl.o
+
+# target to build an object file
+prs_ssrtt_solver_impl.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_solver_impl.cc.o
+.PHONY : prs_ssrtt_solver_impl.cc.o
+
+prs_ssrtt_solver_impl.i: prs_ssrtt_solver_impl.cc.i
+.PHONY : prs_ssrtt_solver_impl.i
+
+# target to preprocess a source file
+prs_ssrtt_solver_impl.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_solver_impl.cc.i
+.PHONY : prs_ssrtt_solver_impl.cc.i
+
+prs_ssrtt_solver_impl.s: prs_ssrtt_solver_impl.cc.s
+.PHONY : prs_ssrtt_solver_impl.s
+
+# target to generate assembly for a file
+prs_ssrtt_solver_impl.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_solver_impl.cc.s
+.PHONY : prs_ssrtt_solver_impl.cc.s
+
 prs_timed_burst_source_impl.o: prs_timed_burst_source_impl.cc.o
 .PHONY : prs_timed_burst_source_impl.o
 
@@ -508,6 +556,12 @@ help:
 	@echo "... prs_receiver_utils.o"
 	@echo "... prs_receiver_utils.i"
 	@echo "... prs_receiver_utils.s"
+	@echo "... prs_ssrtt_responder_impl.o"
+	@echo "... prs_ssrtt_responder_impl.i"
+	@echo "... prs_ssrtt_responder_impl.s"
+	@echo "... prs_ssrtt_solver_impl.o"
+	@echo "... prs_ssrtt_solver_impl.i"
+	@echo "... prs_ssrtt_solver_impl.s"
 	@echo "... prs_timed_burst_source_impl.o"
 	@echo "... prs_timed_burst_source_impl.i"
 	@echo "... prs_timed_burst_source_impl.s"

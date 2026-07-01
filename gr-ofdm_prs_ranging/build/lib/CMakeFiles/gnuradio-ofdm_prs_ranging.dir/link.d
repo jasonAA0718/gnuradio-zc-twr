@@ -10,6 +10,8 @@ libgnuradio-ofdm_prs_ranging.so.1.0.0.0: \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_phase_slope_estimator_impl.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_receiver_utils.cc.o \
+  CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_responder_impl.cc.o \
+  CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_solver_impl.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_timed_burst_source_impl.cc.o \
   /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
   /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
@@ -69,6 +71,10 @@ CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_phase_slope_estimator_impl.cc.o:
 CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.o:
 
 CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_receiver_utils.cc.o:
+
+CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_responder_impl.cc.o:
+
+CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_solver_impl.cc.o:
 
 CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_timed_burst_source_impl.cc.o:
 

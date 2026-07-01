@@ -29,6 +29,8 @@ list(APPEND ofdm_prs_ranging_python_files
     prs_fft_receiver_python.cc
     prs_channel_estimator_python.cc
     prs_phase_slope_estimator_python.cc
+    prs_ssrtt_responder_python.cc
+    prs_ssrtt_solver_python.cc
     prs_csv_logger_python.cc
     prs_timed_burst_source_python.cc
     python_bindings.cc)

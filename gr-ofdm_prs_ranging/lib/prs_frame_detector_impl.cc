@@ -215,16 +215,19 @@ void prs_frame_detector_impl::publish_frame(size_t frame_start_index,
     const uint64_t coarse_abs = d_buffer_abs_start + coarse_index;
     std::vector<gr_complex> frame(d_buffer.begin() + frame_start_index,
                                   d_buffer.begin() + frame_start_index + flen);
-    uint64_t tx_frame_id = 0;
+    prs_payload_info payload_info;
     float payload_metric = 0.0f;
     const int payload_start =
         d_cfg.zero_guard_len + d_cfg.preamble_len * d_cfg.preamble_repeats +
         d_cfg.coarse_sync_len;
     const bool frame_id_valid =
-        decode_frame_id_payload(frame.data() + payload_start,
-                                d_cfg.payload_len,
-                                tx_frame_id,
-                                payload_metric);
+        decode_packet_payload(frame.data() + payload_start,
+                              d_cfg.payload_len,
+                              payload_info,
+                              payload_metric);
+    const uint64_t tx_frame_id =
+        payload_info.packet_type == prs_packet_type_response ? payload_info.response_frame_id
+                                                             : payload_info.poll_frame_id;
     gr_complex cfo_corr(0.0f, 0.0f);
     const int preamble_start = d_cfg.zero_guard_len;
     const int preamble_span = d_cfg.preamble_len * (d_cfg.preamble_repeats - 1);
@@ -240,6 +243,10 @@ void prs_frame_detector_impl::publish_frame(size_t frame_start_index,
     pmt::pmt_t meta = pmt::make_dict();
     meta = pmt::dict_add(meta, pmt::mp("recv_id"), pmt::from_uint64(d_next_frame_id++));
     meta = pmt::dict_add(meta, pmt::mp("frame_id"), pmt::from_uint64(tx_frame_id));
+    meta = pmt::dict_add(meta, pmt::mp("packet_type"), pmt::from_long(payload_info.packet_type));
+    meta = pmt::dict_add(meta, pmt::mp("poll_frame_id"), pmt::from_uint64(payload_info.poll_frame_id));
+    meta = pmt::dict_add(meta, pmt::mp("response_frame_id"), pmt::from_uint64(payload_info.response_frame_id));
+    meta = pmt::dict_add(meta, pmt::mp("reply_delay_samples"), pmt::from_uint64(payload_info.reply_delay_samples));
     meta = pmt::dict_add(meta, pmt::mp("frame_id_valid"), frame_id_valid ? pmt::PMT_T : pmt::PMT_F);
     meta = pmt::dict_add(meta, pmt::mp("payload_metric"), pmt::from_double(payload_metric));
     meta = pmt::dict_add(meta, pmt::mp("absolute_sample_index"), pmt::from_uint64(abs_start));

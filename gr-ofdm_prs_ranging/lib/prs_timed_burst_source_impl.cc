@@ -28,6 +28,38 @@ uint64_t pmt_to_uint64(const pmt::pmt_t& value)
     }
     return 0;
 }
+
+uint64_t dict_ref_u64(const pmt::pmt_t& dict, const char* key, uint64_t fallback)
+{
+    const auto value = pmt::dict_ref(dict, pmt::mp(key), pmt::PMT_NIL);
+    if (pmt::is_uint64(value)) {
+        return pmt::to_uint64(value);
+    }
+    if (pmt::is_integer(value)) {
+        return static_cast<uint64_t>(pmt::to_long(value));
+    }
+    return fallback;
+}
+
+double dict_ref_double_local(const pmt::pmt_t& dict, const char* key, double fallback)
+{
+    const auto value = pmt::dict_ref(dict, pmt::mp(key), pmt::PMT_NIL);
+    if (pmt::is_real(value)) {
+        return pmt::to_double(value);
+    }
+    if (pmt::is_integer(value)) {
+        return static_cast<double>(pmt::to_long(value));
+    }
+    if (pmt::is_uint64(value)) {
+        return static_cast<double>(pmt::to_uint64(value));
+    }
+    return fallback;
+}
+
+bool dict_has_key(const pmt::pmt_t& dict, const char* key)
+{
+    return !pmt::eq(pmt::dict_ref(dict, pmt::mp(key), pmt::PMT_NIL), pmt::PMT_NIL);
+}
 } // namespace
 
 #ifdef OFDM_PRS_RANGING_ENABLE_DEBUG_LOGS
@@ -185,11 +217,15 @@ void prs_timed_burst_source_impl::build_frame()
 
 void prs_timed_burst_source_impl::prepare_burst_frame(uint64_t frame_id)
 {
+    (void)frame_id;
     d_burst_frame = d_frame;
     if (d_payload_len >= prs_frame_id_payload_symbols) {
-        encode_frame_id_payload(frame_id,
-                                d_tx_amp,
-                                d_burst_frame.begin() + d_payload_start);
+        prs_payload_info info;
+        info.packet_type = d_current_burst.packet_type;
+        info.poll_frame_id = d_current_burst.poll_frame_id;
+        info.response_frame_id = d_current_burst.response_frame_id;
+        info.reply_delay_samples = d_current_burst.reply_delay_samples;
+        encode_packet_payload(info, d_tx_amp, d_burst_frame.begin() + d_payload_start);
     }
 }
 
@@ -221,6 +257,47 @@ double prs_timed_burst_source_impl::current_time_estimate()
 
 void prs_timed_burst_source_impl::handle_trigger(pmt::pmt_t msg)
 {
+    if (pmt::is_dict(msg)) {
+        const uint8_t packet_type =
+            static_cast<uint8_t>(dict_ref_u64(msg, "packet_type", prs_packet_type_poll));
+        const uint64_t allocated = d_scheduler.allocate_frame_id();
+        const uint32_t response_id =
+            static_cast<uint32_t>(dict_ref_u64(msg, "response_frame_id", allocated));
+        const uint32_t poll_id = static_cast<uint32_t>(
+            dict_ref_u64(msg,
+                         "poll_frame_id",
+                         packet_type == prs_packet_type_response ? 0 : response_id));
+        const uint32_t reply_delay_samples =
+            static_cast<uint32_t>(dict_ref_u64(msg, "reply_delay_samples", 0));
+
+        double tx_time = std::numeric_limits<double>::quiet_NaN();
+        if (dict_has_key(msg, "tx_time")) {
+            tx_time = dict_ref_double_local(msg, "tx_time", tx_time);
+        } else if (dict_has_key(msg, "tx_time_secs") || dict_has_key(msg, "tx_time_frac")) {
+            tx_time = dict_ref_double_local(msg, "tx_time_secs", 0.0) +
+                      dict_ref_double_local(msg, "tx_time_frac", 0.0);
+        } else if (d_have_rx_time) {
+            tx_time = current_time_estimate() + d_tx_lead_time;
+        }
+
+        const uint64_t primary_id =
+            packet_type == prs_packet_type_response ? response_id : poll_id;
+        d_scheduler.queue_burst(prs_pending_burst{ primary_id,
+                                                   tx_time,
+                                                   0.0,
+                                                   packet_type,
+                                                   poll_id,
+                                                   response_id,
+                                                   reply_delay_samples });
+        PRS_TBS_DEBUG("PRS dict trigger queued: packet_type={} poll_id={} response_id={} tx_time={} reply_delay_samples={}",
+                      packet_type,
+                      poll_id,
+                      response_id,
+                      tx_time,
+                      reply_delay_samples);
+        return;
+    }
+
     int count = d_pings_per_trigger;
     if (pmt::is_integer(msg)) {
         count = std::max(1, static_cast<int>(pmt::to_long(msg)));
@@ -254,6 +331,10 @@ void prs_timed_burst_source_impl::add_burst_tags(uint64_t abs_offset,
     }
     add_item_tag(0, abs_offset, pmt::mp("tx_sob"), pmt::PMT_T);
     add_item_tag(0, abs_offset, pmt::mp("frame_id"), pmt::from_uint64(burst.frame_id));
+    add_item_tag(0, abs_offset, pmt::mp("packet_type"), pmt::from_long(burst.packet_type));
+    add_item_tag(0, abs_offset, pmt::mp("poll_frame_id"), pmt::from_uint64(burst.poll_frame_id));
+    add_item_tag(0, abs_offset, pmt::mp("response_frame_id"), pmt::from_uint64(burst.response_frame_id));
+    add_item_tag(0, abs_offset, pmt::mp("reply_delay_samples"), pmt::from_uint64(burst.reply_delay_samples));
     add_item_tag(0, abs_offset, pmt::mp("burst_len"), pmt::from_long(frame_len()));
     add_item_tag(0, abs_offset, pmt::mp("prs_start"), pmt::from_long(d_prs_start));
     add_item_tag(0, abs_offset, pmt::mp("prs_len"), pmt::from_long(d_prs_len));
@@ -274,6 +355,10 @@ void prs_timed_burst_source_impl::publish_tx_time(const prs_pending_burst& burst
     const double secs_floor = std::floor(burst.tx_time);
     pmt::pmt_t meta = pmt::make_dict();
     meta = pmt::dict_add(meta, pmt::mp("frame_id"), pmt::from_uint64(burst.frame_id));
+    meta = pmt::dict_add(meta, pmt::mp("packet_type"), pmt::from_long(burst.packet_type));
+    meta = pmt::dict_add(meta, pmt::mp("poll_frame_id"), pmt::from_uint64(burst.poll_frame_id));
+    meta = pmt::dict_add(meta, pmt::mp("response_frame_id"), pmt::from_uint64(burst.response_frame_id));
+    meta = pmt::dict_add(meta, pmt::mp("reply_delay_samples"), pmt::from_uint64(burst.reply_delay_samples));
     meta = pmt::dict_add(meta,
                          pmt::mp("tx_time_secs"),
                          pmt::from_uint64(static_cast<uint64_t>(secs_floor)));

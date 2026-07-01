@@ -128,10 +128,38 @@ python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_phas
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ofdm_prs_ranging_python.dir/prs_phase_slope_estimator_python.cc.s"
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_phase_slope_estimator_python.cc -o CMakeFiles/ofdm_prs_ranging_python.dir/prs_phase_slope_estimator_python.cc.s
 
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/flags.make
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o: /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_ssrtt_responder_python.cc
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o"
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o -MF CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o.d -o CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o -c /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_ssrtt_responder_python.cc
+
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.i"
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_ssrtt_responder_python.cc > CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.i
+
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.s"
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_ssrtt_responder_python.cc -o CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.s
+
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/flags.make
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o: /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_ssrtt_solver_python.cc
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o"
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o -MF CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o.d -o CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o -c /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_ssrtt_solver_python.cc
+
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.i"
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_ssrtt_solver_python.cc > CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.i
+
+python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.s"
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_ssrtt_solver_python.cc -o CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.s
+
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/flags.make
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o: /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_csv_logger_python.cc
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o"
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o -MF CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o.d -o CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o -c /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_csv_logger_python.cc
 
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.i: cmake_force
@@ -145,7 +173,7 @@ python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/flags.make
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o: /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_timed_burst_source_python.cc
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o"
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o -MF CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o.d -o CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o -c /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/prs_timed_burst_source_python.cc
 
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.i: cmake_force
@@ -159,7 +187,7 @@ python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_time
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/flags.make
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o: /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/python_bindings.cc
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o"
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o -MF CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o.d -o CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o -c /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/bindings/python_bindings.cc
 
 python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.i: cmake_force
@@ -176,6 +204,8 @@ ofdm_prs_ranging_python_OBJECTS = \
 "CMakeFiles/ofdm_prs_ranging_python.dir/prs_fft_receiver_python.cc.o" \
 "CMakeFiles/ofdm_prs_ranging_python.dir/prs_channel_estimator_python.cc.o" \
 "CMakeFiles/ofdm_prs_ranging_python.dir/prs_phase_slope_estimator_python.cc.o" \
+"CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o" \
+"CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o" \
 "CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o" \
 "CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o" \
 "CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o"
@@ -187,6 +217,8 @@ python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linu
 python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_fft_receiver_python.cc.o
 python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_channel_estimator_python.cc.o
 python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_phase_slope_estimator_python.cc.o
+python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_responder_python.cc.o
+python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o
 python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o
 python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o
 python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o
@@ -209,7 +241,7 @@ python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linu
 python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: /usr/lib/x86_64-linux-gnu/libgmp.so
 python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: /usr/lib/x86_64-linux-gnu/libvolk.so.3.1.2
 python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared module ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX shared module ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so"
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ofdm_prs_ranging_python.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/strip /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings && /usr/bin/cmake -E copy /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/test_modules/gnuradio/ofdm_prs_ranging/

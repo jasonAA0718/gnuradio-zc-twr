@@ -215,7 +215,7 @@ class prs_tx_10M_1399(gr.top_block, Qt.QWidget):
             samp_rate, 1024, 128, 600, 16,
             128, 16, 839,
             1000, 1000, 1.0,
-            0.5, 0.6, 13990001, 10,
+            0.5, 0.7, 13990001, 10,
             True)
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_cc(1.0)
 

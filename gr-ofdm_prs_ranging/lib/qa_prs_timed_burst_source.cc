@@ -17,8 +17,8 @@ namespace ofdm_prs_ranging {
 BOOST_AUTO_TEST_CASE(test_prs_timed_burst_source_frame_geometry)
 {
     auto src = prs_timed_burst_source::make();
-    BOOST_CHECK_EQUAL(src->frame_len(), 23575);
-    BOOST_CHECK_EQUAL(src->prs_start(), 1000 + 128 * 16 + 839 + 256);
+    BOOST_CHECK_EQUAL(src->frame_len(), 23935);
+    BOOST_CHECK_EQUAL(src->prs_start(), 1000 + 128 * 16 + 839 + 616);
     BOOST_CHECK_EQUAL(src->prs_len(), 16 * (1024 + 128));
 }
 
@@ -45,12 +45,12 @@ BOOST_AUTO_TEST_CASE(test_prs_frame_id_payload_crc)
     BOOST_CHECK_EQUAL(frame_id, 0x1234abcdU);
     BOOST_CHECK_GT(metric, 0.99f);
 
-    payload[prs_frame_id_ref_symbols + prs_frame_id_repeat * 3] *= -1.0f;
+    payload[prs_frame_id_ref_symbols + prs_payload_repeat * 3] *= -1.0f;
     BOOST_CHECK(decode_frame_id_payload(
         payload.data(), static_cast<int>(payload.size()), frame_id, metric));
 
-    for (int r = 0; r < prs_frame_id_repeat; ++r) {
-        payload[prs_frame_id_ref_symbols + prs_frame_id_repeat * 7 + r] *= -1.0f;
+    for (int r = 0; r < prs_payload_repeat; ++r) {
+        payload[prs_frame_id_ref_symbols + prs_payload_repeat * 7 + r] *= -1.0f;
     }
     BOOST_CHECK(!decode_frame_id_payload(
         payload.data(), static_cast<int>(payload.size()), frame_id, metric));

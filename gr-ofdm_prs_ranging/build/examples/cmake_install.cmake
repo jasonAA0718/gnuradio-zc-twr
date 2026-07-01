@@ -47,6 +47,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/examples/prs_tx_10M_1399.grc"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/examples/prs_rx_capture_10M_1399.grc"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/examples/prs_rx_estimator_10M_1399.grc"
+    "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/examples/prs_ssrtt_initiator_10M_1399.grc"
+    "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/examples/prs_ssrtt_responder_10M_1399.grc"
     )
 endif()
 

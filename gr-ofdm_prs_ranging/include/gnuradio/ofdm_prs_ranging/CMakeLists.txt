@@ -15,4 +15,6 @@ install(FILES api.h
     prs_fft_receiver.h
     prs_channel_estimator.h
     prs_phase_slope_estimator.h
+    prs_ssrtt_responder.h
+    prs_ssrtt_solver.h
     prs_csv_logger.h DESTINATION include/gnuradio/ofdm_prs_ranging)

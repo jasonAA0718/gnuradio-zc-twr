@@ -70,12 +70,12 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: 10e6
+    value: 20e6
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 24.0]
+    coordinate: [216, 24.0]
     rotation: 0
     state: enabled
 - name: prs_channel_estimator_0
@@ -130,7 +130,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [648, 248.0]
+    coordinate: [680, 280.0]
     rotation: 0
     state: enabled
 - name: prs_frame_detector_0
@@ -157,7 +157,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [408, 244.0]
+    coordinate: [392, 220.0]
     rotation: 0
     state: enabled
 - name: prs_phase_slope_estimator_0

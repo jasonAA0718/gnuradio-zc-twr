@@ -64,7 +64,7 @@ class prs_rx_estimator_10M_1399(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 10e6
+        self.samp_rate = samp_rate = 20e6
         self.rx_gain = rx_gain = 0.5
         self.center_freq = center_freq = 1399e6
 

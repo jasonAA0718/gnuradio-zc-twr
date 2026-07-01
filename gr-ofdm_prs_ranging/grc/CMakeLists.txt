@@ -12,4 +12,6 @@ install(FILES
     ofdm_prs_ranging_prs_fft_receiver.block.yml
     ofdm_prs_ranging_prs_channel_estimator.block.yml
     ofdm_prs_ranging_prs_phase_slope_estimator.block.yml
+    ofdm_prs_ranging_prs_ssrtt_responder.block.yml
+    ofdm_prs_ranging_prs_ssrtt_solver.block.yml
     ofdm_prs_ranging_prs_csv_logger.block.yml DESTINATION share/gnuradio/grc/blocks)

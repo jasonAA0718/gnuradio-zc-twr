@@ -50,6 +50,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_fft_receiver.h"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_channel_estimator.h"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_phase_slope_estimator.h"
+    "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_ssrtt_responder.h"
+    "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_ssrtt_solver.h"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_csv_logger.h"
     )
 endif()
