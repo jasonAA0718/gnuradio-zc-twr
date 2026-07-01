@@ -13,17 +13,33 @@ namespace gr {
 namespace ofdm_prs_ranging {
 
 namespace {
-gr_complex qpsk_symbol(bool bit0, bool bit1, float amplitude)
+float ref_sign(int index)
 {
-    const float scale = amplitude * static_cast<float>(1.0 / std::sqrt(2.0));
-    return gr_complex(bit0 ? scale : -scale, bit1 ? scale : -scale);
+    static constexpr int signs[prs_frame_id_ref_symbols] = {
+        1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1
+    };
+    return static_cast<float>(signs[index]);
 }
 
-gr_complex unit_ref_symbol(int index)
+uint16_t crc16_ccitt(uint32_t frame_id)
 {
-    const bool bit0 = (index & 0x1) != 0;
-    const bool bit1 = (index & 0x2) != 0;
-    return qpsk_symbol(bit0, bit1, 1.0f);
+    uint16_t crc = 0xffffU;
+    for (int byte = 0; byte < 4; ++byte) {
+        crc ^= static_cast<uint16_t>((frame_id >> (8 * byte)) & 0xffU) << 8;
+        for (int bit = 0; bit < 8; ++bit) {
+            crc = (crc & 0x8000U) ? static_cast<uint16_t>((crc << 1) ^ 0x1021U)
+                                  : static_cast<uint16_t>(crc << 1);
+        }
+    }
+    return crc;
+}
+
+bool payload_bit(uint32_t frame_id, uint16_t crc, int bit_index)
+{
+    if (bit_index < prs_frame_id_bits) {
+        return ((frame_id >> bit_index) & 0x1U) != 0;
+    }
+    return ((crc >> (bit_index - prs_frame_id_bits)) & 0x1U) != 0;
 }
 } // namespace
 
@@ -31,14 +47,18 @@ void encode_frame_id_payload(uint64_t frame_id,
                              float amplitude,
                              std::vector<gr_complex>::iterator out)
 {
+    const uint32_t id32 = static_cast<uint32_t>(frame_id & 0xffffffffU);
+    const uint16_t crc = crc16_ccitt(id32);
+
     for (int i = 0; i < prs_frame_id_ref_symbols; ++i) {
-        *(out++) = unit_ref_symbol(i) * amplitude;
+        *(out++) = gr_complex(ref_sign(i) * amplitude, 0.0f);
     }
 
-    for (int i = 0; i < prs_frame_id_data_symbols; ++i) {
-        const bool bit0 = ((frame_id >> (2 * i)) & 0x1U) != 0;
-        const bool bit1 = ((frame_id >> (2 * i + 1)) & 0x1U) != 0;
-        *(out++) = qpsk_symbol(bit0, bit1, amplitude);
+    for (int bit = 0; bit < prs_frame_id_data_bits; ++bit) {
+        const float sign = payload_bit(id32, crc, bit) ? 1.0f : -1.0f;
+        for (int r = 0; r < prs_frame_id_repeat; ++r) {
+            *(out++) = gr_complex(sign * amplitude, 0.0f);
+        }
     }
 }
 
@@ -56,8 +76,8 @@ bool decode_frame_id_payload(const gr_complex* payload,
     gr_complex ref_corr(0.0f, 0.0f);
     double ref_power = 0.0;
     for (int i = 0; i < prs_frame_id_ref_symbols; ++i) {
-        const auto expected = unit_ref_symbol(i);
-        ref_corr += payload[i] * std::conj(expected);
+        const auto expected = gr_complex(ref_sign(i), 0.0f);
+        ref_corr += payload[i] * expected;
         ref_power += std::norm(payload[i]);
     }
 
@@ -67,20 +87,39 @@ bool decode_frame_id_payload(const gr_complex* payload,
     }
 
     const gr_complex correction = std::conj(ref_corr) / ref_mag;
-    metric = static_cast<float>(
+    const float ref_metric = static_cast<float>(
         std::min(1.0, ref_mag / std::sqrt(ref_power * prs_frame_id_ref_symbols)));
 
-    for (int i = 0; i < prs_frame_id_data_symbols; ++i) {
-        const gr_complex corrected = payload[prs_frame_id_ref_symbols + i] * correction;
-        if (corrected.real() >= 0.0f) {
-            frame_id |= (uint64_t{ 1 } << (2 * i));
+    uint32_t id32 = 0;
+    uint16_t rx_crc = 0;
+    double vote_margin_sum = 0.0;
+    for (int bit = 0; bit < prs_frame_id_data_bits; ++bit) {
+        int positive = 0;
+        for (int r = 0; r < prs_frame_id_repeat; ++r) {
+            const int index = prs_frame_id_ref_symbols + bit * prs_frame_id_repeat + r;
+            const gr_complex corrected = payload[index] * correction;
+            if (corrected.real() >= 0.0f) {
+                ++positive;
+            }
         }
-        if (corrected.imag() >= 0.0f) {
-            frame_id |= (uint64_t{ 1 } << (2 * i + 1));
+        const bool one = positive >= ((prs_frame_id_repeat / 2) + 1);
+        vote_margin_sum +=
+            static_cast<double>(std::abs(2 * positive - prs_frame_id_repeat)) /
+            static_cast<double>(prs_frame_id_repeat);
+        if (bit < prs_frame_id_bits) {
+            if (one) {
+                id32 |= (uint32_t{ 1 } << bit);
+            }
+        } else if (one) {
+            rx_crc |= static_cast<uint16_t>(uint16_t{ 1 } << (bit - prs_frame_id_bits));
         }
     }
 
-    return true;
+    frame_id = id32;
+    const float vote_metric =
+        static_cast<float>(vote_margin_sum / static_cast<double>(prs_frame_id_data_bits));
+    metric = std::min(ref_metric, vote_metric);
+    return rx_crc == crc16_ccitt(id32);
 }
 
 } // namespace ofdm_prs_ranging

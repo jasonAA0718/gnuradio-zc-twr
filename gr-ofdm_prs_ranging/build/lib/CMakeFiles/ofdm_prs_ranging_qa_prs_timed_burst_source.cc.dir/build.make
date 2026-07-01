@@ -86,14 +86,30 @@ lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_bu
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_burst_source.cc.s"
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/qa_prs_timed_burst_source.cc -o CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_burst_source.cc.s
 
+lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o: lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/flags.make
+lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o: /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/prs_payload_codec.cc
+lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o: lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o"
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o -MF CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o.d -o CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o -c /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/prs_payload_codec.cc
+
+lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.i"
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/prs_payload_codec.cc > CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.i
+
+lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.s"
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/prs_payload_codec.cc -o CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.s
+
 # Object files for target ofdm_prs_ranging_qa_prs_timed_burst_source.cc
 ofdm_prs_ranging_qa_prs_timed_burst_source_cc_OBJECTS = \
-"CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_burst_source.cc.o"
+"CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_burst_source.cc.o" \
+"CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o"
 
 # External object files for target ofdm_prs_ranging_qa_prs_timed_burst_source.cc
 ofdm_prs_ranging_qa_prs_timed_burst_source_cc_EXTERNAL_OBJECTS =
 
 lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_burst_source.cc.o
+lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o
 lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/build.make
 lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/compiler_depend.ts
 lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0
@@ -109,7 +125,7 @@ lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: /usr/lib/x86_64-linux-gnu/lib
 lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: /usr/lib/x86_64-linux-gnu/libgmp.so
 lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: /usr/lib/x86_64-linux-gnu/libvolk.so.3.1.2
 lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ofdm_prs_ranging_qa_prs_timed_burst_source.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ofdm_prs_ranging_qa_prs_timed_burst_source.cc"
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

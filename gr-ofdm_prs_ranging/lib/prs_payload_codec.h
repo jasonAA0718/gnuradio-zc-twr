@@ -15,8 +15,12 @@
 namespace gr {
 namespace ofdm_prs_ranging {
 
-constexpr int prs_frame_id_ref_symbols = 8;
-constexpr int prs_frame_id_data_symbols = 32;
+constexpr int prs_frame_id_ref_symbols = 16;
+constexpr int prs_frame_id_bits = 32;
+constexpr int prs_frame_id_crc_bits = 16;
+constexpr int prs_frame_id_repeat = 5;
+constexpr int prs_frame_id_data_bits = prs_frame_id_bits + prs_frame_id_crc_bits;
+constexpr int prs_frame_id_data_symbols = prs_frame_id_data_bits * prs_frame_id_repeat;
 constexpr int prs_frame_id_payload_symbols =
     prs_frame_id_ref_symbols + prs_frame_id_data_symbols;
 

@@ -84,4 +84,8 @@ endif(NOT test_ofdm_prs_ranging_sources)
 
 foreach(qa_file ${test_ofdm_prs_ranging_sources})
     gr_add_cpp_test("ofdm_prs_ranging_${qa_file}" ${CMAKE_CURRENT_SOURCE_DIR}/${qa_file})
+    if(qa_file STREQUAL "qa_prs_timed_burst_source.cc")
+        target_sources("ofdm_prs_ranging_${qa_file}" PRIVATE
+                       ${CMAKE_CURRENT_SOURCE_DIR}/prs_payload_codec.cc)
+    endif()
 endforeach(qa_file)
