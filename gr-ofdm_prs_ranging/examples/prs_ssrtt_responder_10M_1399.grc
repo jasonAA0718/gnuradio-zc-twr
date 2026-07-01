@@ -50,7 +50,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '50000'
+    value: '500000'
   states:
     bus_sink: false
     bus_source: false
@@ -184,7 +184,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [576, 168.0]
+    coordinate: [568, 168.0]
     rotation: 0
     state: enabled
 - name: prs_ssrtt_responder_0
@@ -201,7 +201,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1456, 384.0]
+    coordinate: [1416, 384.0]
     rotation: 0
     state: enabled
 - name: uhd_usrp_sink_0
