@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_frame_builder.cc.o.d"
   "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_frame_detector_impl.cc.o"
   "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_frame_detector_impl.cc.o.d"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.o"
+  "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.o.d"
   "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_phase_slope_estimator_impl.cc.o"
   "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_phase_slope_estimator_impl.cc.o.d"
   "CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_receiver_utils.cc.o"

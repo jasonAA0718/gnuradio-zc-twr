@@ -343,6 +343,30 @@ prs_frame_detector_impl.cc.s:
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_frame_detector_impl.cc.s
 .PHONY : prs_frame_detector_impl.cc.s
 
+prs_payload_codec.o: prs_payload_codec.cc.o
+.PHONY : prs_payload_codec.o
+
+# target to build an object file
+prs_payload_codec.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.o
+.PHONY : prs_payload_codec.cc.o
+
+prs_payload_codec.i: prs_payload_codec.cc.i
+.PHONY : prs_payload_codec.i
+
+# target to preprocess a source file
+prs_payload_codec.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.i
+.PHONY : prs_payload_codec.cc.i
+
+prs_payload_codec.s: prs_payload_codec.cc.s
+.PHONY : prs_payload_codec.s
+
+# target to generate assembly for a file
+prs_payload_codec.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.s
+.PHONY : prs_payload_codec.cc.s
+
 prs_phase_slope_estimator_impl.o: prs_phase_slope_estimator_impl.cc.o
 .PHONY : prs_phase_slope_estimator_impl.o
 
@@ -472,6 +496,9 @@ help:
 	@echo "... prs_frame_detector_impl.o"
 	@echo "... prs_frame_detector_impl.i"
 	@echo "... prs_frame_detector_impl.s"
+	@echo "... prs_payload_codec.o"
+	@echo "... prs_payload_codec.i"
+	@echo "... prs_payload_codec.s"
 	@echo "... prs_phase_slope_estimator_impl.o"
 	@echo "... prs_phase_slope_estimator_impl.i"
 	@echo "... prs_phase_slope_estimator_impl.s"

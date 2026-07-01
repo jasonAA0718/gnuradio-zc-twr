@@ -37,8 +37,11 @@ namespace gr {
       bool d_attach_tx_time;
 
       std::vector<gr_complex> d_frame;
+      std::vector<gr_complex> d_burst_frame;
       int d_prs_start;
       int d_prs_len;
+      int d_payload_start;
+      int d_payload_len;
       prs_burst_scheduler d_scheduler;
       bool d_in_burst;
       prs_pending_burst d_current_burst;
@@ -50,6 +53,7 @@ namespace gr {
 
       void validate_parameters() const;
       void build_frame();
+      void prepare_burst_frame(uint64_t frame_id);
       void handle_trigger(pmt::pmt_t msg);
       double current_time_estimate();
       void add_burst_tags(uint64_t abs_offset, const prs_pending_burst& burst);

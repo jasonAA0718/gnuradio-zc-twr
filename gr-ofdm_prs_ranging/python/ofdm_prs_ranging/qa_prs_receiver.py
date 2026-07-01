@@ -54,6 +54,9 @@ class qa_prs_receiver(gr_unittest.TestCase):
         self.assertGreaterEqual(debug.num_messages(), 1)
         msg = debug.get_message(0)
         meta = pmt.car(msg)
+        self.assertEqual(pmt.to_uint64(pmt.dict_ref(meta, pmt.intern("recv_id"), pmt.PMT_NIL)), 0)
+        self.assertEqual(pmt.to_uint64(pmt.dict_ref(meta, pmt.intern("frame_id"), pmt.PMT_NIL)), 0)
+        self.assertTrue(pmt.to_bool(pmt.dict_ref(meta, pmt.intern("frame_id_valid"), pmt.PMT_F)))
         self.assertEqual(pmt.to_uint64(pmt.dict_ref(meta, pmt.intern("frame_start"), pmt.PMT_NIL)), 300)
         self.assertLess(abs(pmt.to_double(pmt.dict_ref(meta, pmt.intern("fine_delay_samples"), pmt.PMT_NIL))), 0.25)
         self.assertGreater(pmt.to_double(pmt.dict_ref(meta, pmt.intern("peak_metric"), pmt.PMT_NIL)), 0.9)
@@ -66,13 +69,16 @@ class qa_prs_receiver(gr_unittest.TestCase):
             logger = ofdm_prs_ranging.prs_csv_logger(path, False)
             meta = pmt.make_dict()
             for key, value in (
+                ("recv_id", pmt.from_uint64(3)),
                 ("frame_id", pmt.from_uint64(7)),
+                ("frame_id_valid", pmt.PMT_T),
                 ("coarse_delay", pmt.from_double(1.0e-6)),
                 ("fine_delay", pmt.from_double(2.0e-9)),
                 ("cfo", pmt.from_double(0.0)),
                 ("snr", pmt.from_double(30.0)),
                 ("phase_residual", pmt.from_double(0.01)),
                 ("peak_metric", pmt.from_double(0.95)),
+                ("payload_metric", pmt.from_double(0.98)),
                 ("quality", pmt.from_double(0.9)),
             ):
                 meta = pmt.dict_add(meta, pmt.intern(key), value)
@@ -85,8 +91,8 @@ class qa_prs_receiver(gr_unittest.TestCase):
 
             with open(path, "r", encoding="utf-8") as f:
                 lines = [line.strip() for line in f.readlines()]
-            self.assertEqual(lines[0], "frame_id,coarse_delay,fine_delay,cfo,snr,phase_residual,peak_metric,quality")
-            self.assertTrue(lines[1].startswith("7,"))
+            self.assertEqual(lines[0], "recv_id,frame_id,frame_id_valid,coarse_delay,fine_delay,cfo,snr,phase_residual,peak_metric,payload_metric,quality")
+            self.assertTrue(lines[1].startswith("3,7,1,"))
         finally:
             if os.path.exists(path):
                 os.unlink(path)

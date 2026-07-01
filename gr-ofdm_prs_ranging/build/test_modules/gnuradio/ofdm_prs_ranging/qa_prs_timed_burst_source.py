@@ -32,8 +32,8 @@ class qa_prs_timed_burst_source(gr_unittest.TestCase):
 
     def test_waveform_length_and_offsets(self):
         src = prs_timed_burst_source()
-        self.assertEqual(src.frame_len(), 23319)
-        self.assertEqual(src.prs_start(), 1000 + 128 * 16 + 839)
+        self.assertEqual(src.frame_len(), 23359)
+        self.assertEqual(src.prs_start(), 1000 + 128 * 16 + 839 + 40)
         self.assertEqual(src.prs_len(), 16 * (1024 + 128))
 
     def test_active_subcarrier_mapping(self):
@@ -95,7 +95,7 @@ class qa_prs_timed_burst_source(gr_unittest.TestCase):
         tx_time = tags_by_key["tx_time"].value
         self.assertEqual(pmt.to_uint64(pmt.tuple_ref(tx_time, 0)), 123)
         self.assertAlmostEqual(pmt.to_double(pmt.tuple_ref(tx_time, 1)), 0.75)
-        self.assertEqual(pmt.to_long(tags_by_key["burst_len"].value), 23319)
+        self.assertEqual(pmt.to_long(tags_by_key["burst_len"].value), 23359)
         self.assertEqual(tags_by_key["tx_eob"].offset, src.frame_len() - 1)
 
     def test_attach_tx_time_false_omits_tx_time_tag(self):

@@ -26,6 +26,7 @@ struct prs_rx_config {
     int preamble_len = 128;
     int preamble_repeats = 16;
     int coarse_sync_len = 839;
+    int payload_len = 40;
     int zero_guard_len = 1000;
     int tail_guard_len = 1000;
     uint32_t seed = 13990001;
@@ -37,7 +38,6 @@ int frame_len(const prs_rx_config& cfg);
 std::vector<gr_complex> coarse_sync_sequence(int len);
 std::vector<gr_complex> qpsk_pilots(const prs_rx_config& cfg);
 std::vector<float> active_frequencies(const prs_rx_config& cfg);
-std::vector<gr_complex> dft(const std::vector<gr_complex>& in, bool inverse);
 std::vector<float> unwrap_phase(const std::vector<gr_complex>& samples);
 bool pdu_get_c32(const pmt::pmt_t& msg, pmt::pmt_t& meta, std::vector<gr_complex>& data);
 pmt::pmt_t dict_add_double(pmt::pmt_t dict, const std::string& key, double value);

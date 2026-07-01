@@ -26,7 +26,8 @@ gr_complex deterministic_qpsk(std::mt19937& gen)
 
 int prs_start_offset(const prs_rx_config& cfg)
 {
-    return cfg.zero_guard_len + cfg.preamble_len * cfg.preamble_repeats + cfg.coarse_sync_len;
+    return cfg.zero_guard_len + cfg.preamble_len * cfg.preamble_repeats +
+           cfg.coarse_sync_len + cfg.payload_len;
 }
 
 int prs_len(const prs_rx_config& cfg) { return cfg.prs_symbols * (cfg.fft_len + cfg.cp_len); }
@@ -80,22 +81,6 @@ std::vector<float> active_frequencies(const prs_rx_config& cfg)
         freq.push_back(static_cast<float>(b * spacing));
     }
     return freq;
-}
-
-std::vector<gr_complex> dft(const std::vector<gr_complex>& in, bool inverse)
-{
-    std::vector<gr_complex> out(in.size(), gr_complex(0.0f, 0.0f));
-    const double n = static_cast<double>(in.size());
-    const double sign = inverse ? 1.0 : -1.0;
-    for (size_t k = 0; k < in.size(); ++k) {
-        gr_complex acc(0.0f, 0.0f);
-        for (size_t t = 0; t < in.size(); ++t) {
-            const double phase = sign * 2.0 * pi * static_cast<double>(k * t) / n;
-            acc += in[t] * gr_complex(std::cos(phase), std::sin(phase));
-        }
-        out[k] = inverse ? acc / static_cast<float>(n) : acc;
-    }
-    return out;
 }
 
 std::vector<float> unwrap_phase(const std::vector<gr_complex>& samples)

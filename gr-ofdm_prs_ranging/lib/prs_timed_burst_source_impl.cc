@@ -7,6 +7,7 @@
 
 #include "prs_timed_burst_source_impl.h"
 #include "prs_frame_builder.h"
+#include "prs_payload_codec.h"
 #include <gnuradio/io_signature.h>
 #include <algorithm>
 #include <cmath>
@@ -110,6 +111,8 @@ prs_timed_burst_source_impl::prs_timed_burst_source_impl(double samp_rate,
       d_attach_tx_time(attach_tx_time),
       d_prs_start(0),
       d_prs_len(0),
+      d_payload_start(0),
+      d_payload_len(0),
       d_in_burst(false),
       d_burst_offset(0),
       d_have_rx_time(false),
@@ -161,19 +164,33 @@ void prs_timed_burst_source_impl::build_frame()
                                 d_preamble_len,
                                 d_preamble_repeats,
                                 d_coarse_sync_len,
+                                prs_frame_id_payload_symbols,
                                 d_zero_guard_len,
                                 d_tail_guard_len,
                                 d_tx_amp,
                                 d_seed };
     const auto frame = prs_frame_builder::build(cfg);
     d_frame = frame.samples;
+    d_burst_frame = d_frame;
     d_prs_start = frame.prs_start;
     d_prs_len = frame.prs_len;
+    d_payload_start = frame.payload_start;
+    d_payload_len = frame.payload_len;
 
     PRS_TBS_DEBUG("PRS frame generated: frame_len={} prs_start={} prs_len={}",
                   d_frame.size(),
                   d_prs_start,
-                  d_prs_len);
+	                  d_prs_len);
+}
+
+void prs_timed_burst_source_impl::prepare_burst_frame(uint64_t frame_id)
+{
+    d_burst_frame = d_frame;
+    if (d_payload_len >= prs_frame_id_payload_symbols) {
+        encode_frame_id_payload(frame_id,
+                                d_tx_amp,
+                                d_burst_frame.begin() + d_payload_start);
+    }
 }
 
 void prs_timed_burst_source_impl::forecast(int noutput_items,
@@ -315,6 +332,7 @@ int prs_timed_burst_source_impl::general_work(int noutput_items,
             }
             d_in_burst = true;
             d_burst_offset = 0;
+            prepare_burst_frame(d_current_burst.frame_id);
             const uint64_t abs_out = nitems_written(0) + produced;
             add_burst_tags(abs_out, d_current_burst);
             publish_tx_time(d_current_burst);
@@ -325,11 +343,11 @@ int prs_timed_burst_source_impl::general_work(int noutput_items,
                           d_frame.size());
         }
 
-        const size_t remaining_burst = d_frame.size() - d_burst_offset;
+        const size_t remaining_burst = d_burst_frame.size() - d_burst_offset;
         const int remaining_output = noutput_items - produced;
         const size_t ncopy = std::min(remaining_burst, static_cast<size_t>(remaining_output));
-        std::copy(d_frame.begin() + d_burst_offset,
-                  d_frame.begin() + d_burst_offset + ncopy,
+        std::copy(d_burst_frame.begin() + d_burst_offset,
+                  d_burst_frame.begin() + d_burst_offset + ncopy,
                   out + produced);
         d_burst_offset += ncopy;
         produced += static_cast<int>(ncopy);
@@ -339,7 +357,7 @@ int prs_timed_burst_source_impl::general_work(int noutput_items,
                       d_burst_offset,
                       produced);
 
-        if (d_burst_offset == d_frame.size()) {
+        if (d_burst_offset == d_burst_frame.size()) {
             const uint64_t eob_offset = nitems_written(0) + produced - 1;
             add_item_tag(0, eob_offset, pmt::mp("tx_eob"), pmt::PMT_T);
             PRS_TBS_DEBUG("PRS burst complete: frame_id={} eob_abs={} total_samples={}",

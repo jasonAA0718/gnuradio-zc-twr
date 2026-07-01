@@ -8392,6 +8392,7 @@ python/ofdm_prs_ranging/bindings/ofdm_prs_ranging_python.cpython-313-x86_64-linu
   /usr/lib/x86_64-linux-gnu/libfmt.so.10.1.0 \
   /usr/lib/x86_64-linux-gnu/libgmp.so \
   /usr/lib/x86_64-linux-gnu/libgmpxx.so \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
   /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0 \
   /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
   /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1 \
@@ -8418,6 +8419,8 @@ python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_chan
 /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1:
 
 /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0:
+
+/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0:
 
 /usr/lib/x86_64-linux-gnu/libgmp.so:
 

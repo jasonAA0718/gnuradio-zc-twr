@@ -6,6 +6,7 @@
  */
 
 #include "prs_frame_builder.h"
+#include "prs_payload_codec.h"
 #include <algorithm>
 #include <cmath>
 #include <random>
@@ -92,12 +93,18 @@ prs_frame prs_frame_builder::build(const prs_frame_config& cfg)
     prs_frame result;
     auto& frame = result.samples;
     frame.reserve(cfg.zero_guard_len + cfg.preamble_len * cfg.preamble_repeats +
-                  cfg.coarse_sync_len + cfg.prs_symbols * (cfg.fft_len + cfg.cp_len) +
-                  cfg.tail_guard_len);
+                  cfg.coarse_sync_len + cfg.payload_len +
+                  cfg.prs_symbols * (cfg.fft_len + cfg.cp_len) + cfg.tail_guard_len);
 
     frame.insert(frame.end(), cfg.zero_guard_len, gr_complex(0.0f, 0.0f));
     append_short_preamble(frame, cfg);
     append_coarse_sync(frame, cfg);
+    result.payload_start = static_cast<int>(frame.size());
+    result.payload_len = cfg.payload_len;
+    frame.insert(frame.end(), cfg.payload_len, gr_complex(0.0f, 0.0f));
+    if (cfg.payload_len >= prs_frame_id_payload_symbols) {
+        encode_frame_id_payload(0, 1.0f, frame.begin() + result.payload_start);
+    }
     result.prs_start = static_cast<int>(frame.size());
     append_prs_symbols(frame, cfg);
     result.prs_len = static_cast<int>(frame.size()) - result.prs_start;

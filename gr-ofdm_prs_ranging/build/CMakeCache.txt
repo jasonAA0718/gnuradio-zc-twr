@@ -343,6 +343,9 @@ boost_unit_test_framework_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_unit_te
 //The directory containing a CMake configuration file for fmt.
 fmt_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/fmt
 
+//The directory containing a CMake configuration file for gnuradio-fft.
+gnuradio-fft_DIR:PATH=gnuradio-fft_DIR-NOTFOUND
+
 //Value Computed by CMake
 gr-ofdm_prs_ranging_BINARY_DIR:STATIC=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build
 

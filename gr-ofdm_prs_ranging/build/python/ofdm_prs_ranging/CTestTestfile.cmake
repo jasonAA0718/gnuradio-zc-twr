@@ -7,5 +7,5 @@
 add_test(qa_prs_timed_burst_source "/usr/bin/sh" "qa_prs_timed_burst_source_test.sh")
 set_tests_properties(qa_prs_timed_burst_source PROPERTIES  _BACKTRACE_TRIPLES "/usr/lib/x86_64-linux-gnu/cmake/gnuradio/GrTest.cmake;119;add_test;/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/CMakeLists.txt;37;GR_ADD_TEST;/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/CMakeLists.txt;0;")
 add_test(qa_prs_receiver "/usr/bin/sh" "qa_prs_receiver_test.sh")
-set_tests_properties(qa_prs_receiver PROPERTIES  _BACKTRACE_TRIPLES "/usr/lib/x86_64-linux-gnu/cmake/gnuradio/GrTest.cmake;119;add_test;/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/CMakeLists.txt;38;GR_ADD_TEST;/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/CMakeLists.txt;0;")
+set_tests_properties(qa_prs_receiver PROPERTIES  ENVIRONMENT "HOME=/tmp;XDG_CACHE_HOME=/tmp" _BACKTRACE_TRIPLES "/usr/lib/x86_64-linux-gnu/cmake/gnuradio/GrTest.cmake;119;add_test;/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/CMakeLists.txt;38;GR_ADD_TEST;/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/python/ofdm_prs_ranging/CMakeLists.txt;0;")
 subdirs("bindings")

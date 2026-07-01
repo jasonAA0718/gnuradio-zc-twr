@@ -19,6 +19,7 @@ list(APPEND ofdm_prs_ranging_sources
     prs_frame_detector_impl.cc
     prs_frame_builder.cc
     prs_phase_slope_estimator_impl.cc
+    prs_payload_codec.cc
     prs_receiver_utils.cc
     prs_timed_burst_source_impl.cc)
 
@@ -31,7 +32,9 @@ if(NOT ofdm_prs_ranging_sources)
 endif(NOT ofdm_prs_ranging_sources)
 
 add_library(gnuradio-ofdm_prs_ranging SHARED ${ofdm_prs_ranging_sources})
-target_link_libraries(gnuradio-ofdm_prs_ranging gnuradio::gnuradio-runtime)
+target_link_libraries(gnuradio-ofdm_prs_ranging
+                      gnuradio::gnuradio-runtime
+                      gnuradio::gnuradio-fft)
 if(OFDM_PRS_RANGING_ENABLE_DEBUG_LOGS)
     target_compile_definitions(gnuradio-ofdm_prs_ranging
                                PRIVATE OFDM_PRS_RANGING_ENABLE_DEBUG_LOGS)

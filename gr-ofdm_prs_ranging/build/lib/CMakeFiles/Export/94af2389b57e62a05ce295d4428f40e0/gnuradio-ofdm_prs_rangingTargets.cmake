@@ -60,7 +60,7 @@ add_library(gnuradio::gnuradio-ofdm_prs_ranging SHARED IMPORTED)
 
 set_target_properties(gnuradio::gnuradio-ofdm_prs_ranging PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "gnuradio::gnuradio-runtime"
+  INTERFACE_LINK_LIBRARIES "gnuradio::gnuradio-runtime;gnuradio::gnuradio-fft"
 )
 
 # Load information for each installed configuration.

@@ -6,6 +6,7 @@
  */
 
 #include "prs_frame_detector_impl.h"
+#include "prs_payload_codec.h"
 #include <gnuradio/io_signature.h>
 #include <algorithm>
 #include <cmath>
@@ -57,6 +58,7 @@ prs_frame_detector_impl::prs_frame_detector_impl(double samp_rate,
                 gr::io_signature::make(0, 0, 0)),
       d_threshold(threshold),
       d_min_frame_gap(min_frame_gap),
+      d_next_scan_index(0),
       d_buffer_abs_start(0),
       d_total_seen(0),
       d_next_frame_id(0),
@@ -103,54 +105,105 @@ void prs_frame_detector_impl::update_rx_time_tags(uint64_t abs_start, uint64_t a
     }
 }
 
+float prs_frame_detector_impl::coarse_sync_metric(size_t coarse_index) const
+{
+    gr_complex corr(0.0f, 0.0f);
+    double power = 0.0;
+    for (int i = 0; i < d_cfg.coarse_sync_len; ++i) {
+        const auto sample = d_buffer[coarse_index + i];
+        corr += sample * std::conj(d_coarse[i]);
+        power += std::norm(sample);
+    }
+    const double denom = std::sqrt(power * static_cast<double>(d_cfg.coarse_sync_len));
+    return denom > 0.0 ? static_cast<float>(std::abs(corr) / denom) : 0.0f;
+}
+
 bool prs_frame_detector_impl::find_frame(size_t& frame_start_index,
                                          size_t& coarse_index,
                                          float& metric)
 {
     const int flen = frame_len(d_cfg);
     const int coarse_rel = d_cfg.zero_guard_len + d_cfg.preamble_len * d_cfg.preamble_repeats;
+    const int preamble_rel = d_cfg.zero_guard_len;
     if (d_buffer.size() < static_cast<size_t>(flen)) {
         return false;
     }
 
-    float best_metric = 0.0f;
-    size_t best_coarse = 0;
-    const size_t max_coarse = d_buffer.size() - d_cfg.coarse_sync_len;
-    for (size_t c = static_cast<size_t>(coarse_rel); c <= max_coarse; ++c) {
-        if (c < static_cast<size_t>(coarse_rel)) {
-            continue;
-        }
-        const size_t start = c - coarse_rel;
-        if (start + static_cast<size_t>(flen) > d_buffer.size()) {
-            continue;
-        }
-        const int64_t abs_start = static_cast<int64_t>(d_buffer_abs_start + start);
-        if (abs_start - d_last_frame_start < d_min_frame_gap) {
-            continue;
-        }
-
-        gr_complex corr(0.0f, 0.0f);
-        double power = 0.0;
-        for (int i = 0; i < d_cfg.coarse_sync_len; ++i) {
-            const auto sample = d_buffer[c + i];
-            corr += sample * std::conj(d_coarse[i]);
-            power += std::norm(sample);
-        }
-        const double denom = std::sqrt(power * static_cast<double>(d_cfg.coarse_sync_len));
-        const float m = denom > 0.0 ? static_cast<float>(std::abs(corr) / denom) : 0.0f;
-        if (m > best_metric) {
-            best_metric = m;
-            best_coarse = c;
-        }
+    const size_t first_preamble = static_cast<size_t>(preamble_rel);
+    if (d_next_scan_index < first_preamble) {
+        d_next_scan_index = first_preamble;
     }
-
-    if (best_metric < d_threshold) {
+    const size_t max_preamble = d_buffer.size() - static_cast<size_t>(flen) +
+                                static_cast<size_t>(preamble_rel);
+    if (d_next_scan_index > max_preamble) {
         return false;
     }
-    coarse_index = best_coarse;
-    frame_start_index = best_coarse - coarse_rel;
-    metric = best_metric;
-    return true;
+
+    const int span = d_cfg.preamble_len * (d_cfg.preamble_repeats - 1);
+    const auto add_pair = [this](size_t index,
+                                 gr_complex& corr,
+                                 double& first_power,
+                                 double& second_power) {
+        const auto first = d_buffer[index];
+        const auto second = d_buffer[index + d_cfg.preamble_len];
+        corr += std::conj(first) * second;
+        first_power += std::norm(first);
+        second_power += std::norm(second);
+    };
+    const auto remove_pair = [this](size_t index,
+                                    gr_complex& corr,
+                                    double& first_power,
+                                    double& second_power) {
+        const auto first = d_buffer[index];
+        const auto second = d_buffer[index + d_cfg.preamble_len];
+        corr -= std::conj(first) * second;
+        first_power -= std::norm(first);
+        second_power -= std::norm(second);
+    };
+
+    gr_complex preamble_corr(0.0f, 0.0f);
+    double first_power = 0.0;
+    double second_power = 0.0;
+    for (int i = 0; i < span; ++i) {
+        add_pair(d_next_scan_index + static_cast<size_t>(i),
+                 preamble_corr,
+                 first_power,
+                 second_power);
+    }
+
+    for (size_t p = d_next_scan_index; p <= max_preamble; ++p) {
+        const size_t start = p - static_cast<size_t>(preamble_rel);
+        const int64_t abs_start = static_cast<int64_t>(d_buffer_abs_start + start);
+        if (abs_start - d_last_frame_start < d_min_frame_gap) {
+        } else {
+            const double denom = std::sqrt(std::max(0.0, first_power) *
+                                           std::max(0.0, second_power));
+            const float preamble_metric =
+                denom > 0.0 ? static_cast<float>(std::abs(preamble_corr) / denom) : 0.0f;
+            if (preamble_metric >= d_threshold) {
+                const size_t c = start + static_cast<size_t>(coarse_rel);
+                const float m = coarse_sync_metric(c);
+                if (m >= d_threshold) {
+                    d_next_scan_index = p + static_cast<size_t>(d_min_frame_gap);
+                    frame_start_index = start;
+                    coarse_index = c;
+                    metric = m;
+                    return true;
+                }
+            }
+        }
+
+        if (p < max_preamble) {
+            remove_pair(p, preamble_corr, first_power, second_power);
+            add_pair(p + static_cast<size_t>(span),
+                     preamble_corr,
+                     first_power,
+                     second_power);
+        }
+    }
+
+    d_next_scan_index = max_preamble + 1;
+    return false;
 }
 
 void prs_frame_detector_impl::publish_frame(size_t frame_start_index,
@@ -162,6 +215,16 @@ void prs_frame_detector_impl::publish_frame(size_t frame_start_index,
     const uint64_t coarse_abs = d_buffer_abs_start + coarse_index;
     std::vector<gr_complex> frame(d_buffer.begin() + frame_start_index,
                                   d_buffer.begin() + frame_start_index + flen);
+    uint64_t tx_frame_id = 0;
+    float payload_metric = 0.0f;
+    const int payload_start =
+        d_cfg.zero_guard_len + d_cfg.preamble_len * d_cfg.preamble_repeats +
+        d_cfg.coarse_sync_len;
+    const bool frame_id_valid =
+        decode_frame_id_payload(frame.data() + payload_start,
+                                d_cfg.payload_len,
+                                tx_frame_id,
+                                payload_metric);
     gr_complex cfo_corr(0.0f, 0.0f);
     const int preamble_start = d_cfg.zero_guard_len;
     const int preamble_span = d_cfg.preamble_len * (d_cfg.preamble_repeats - 1);
@@ -175,7 +238,10 @@ void prs_frame_detector_impl::publish_frame(size_t frame_start_index,
                            d_cfg.preamble_len);
 
     pmt::pmt_t meta = pmt::make_dict();
-    meta = pmt::dict_add(meta, pmt::mp("frame_id"), pmt::from_uint64(d_next_frame_id++));
+    meta = pmt::dict_add(meta, pmt::mp("recv_id"), pmt::from_uint64(d_next_frame_id++));
+    meta = pmt::dict_add(meta, pmt::mp("frame_id"), pmt::from_uint64(tx_frame_id));
+    meta = pmt::dict_add(meta, pmt::mp("frame_id_valid"), frame_id_valid ? pmt::PMT_T : pmt::PMT_F);
+    meta = pmt::dict_add(meta, pmt::mp("payload_metric"), pmt::from_double(payload_metric));
     meta = pmt::dict_add(meta, pmt::mp("absolute_sample_index"), pmt::from_uint64(abs_start));
     meta = pmt::dict_add(meta, pmt::mp("frame_start"), pmt::from_uint64(abs_start));
     meta = pmt::dict_add(meta, pmt::mp("coarse_peak"), pmt::from_uint64(coarse_abs));
@@ -227,6 +293,7 @@ int prs_frame_detector_impl::general_work(int noutput_items,
         const size_t drop = frame_start + static_cast<size_t>(frame_len(d_cfg));
         d_buffer.erase(d_buffer.begin(), d_buffer.begin() + drop);
         d_buffer_abs_start += drop;
+        d_next_scan_index = d_next_scan_index > drop ? d_next_scan_index - drop : 0;
     }
 
     const size_t keep = static_cast<size_t>(frame_len(d_cfg) + d_cfg.coarse_sync_len);
@@ -234,6 +301,7 @@ int prs_frame_detector_impl::general_work(int noutput_items,
         const size_t drop = d_buffer.size() - keep;
         d_buffer.erase(d_buffer.begin(), d_buffer.begin() + drop);
         d_buffer_abs_start += drop;
+        d_next_scan_index = d_next_scan_index > drop ? d_next_scan_index - drop : 0;
     }
 
     consume_each(ninput);

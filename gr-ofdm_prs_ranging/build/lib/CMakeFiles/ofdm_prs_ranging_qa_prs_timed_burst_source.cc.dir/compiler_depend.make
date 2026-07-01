@@ -1305,6 +1305,8 @@ lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_bu
 lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: /lib/x86_64-linux-gnu/libboost_program_options.so.1.83.0 \
   /lib/x86_64-linux-gnu/libc.so.6 \
   /lib/x86_64-linux-gnu/libcrypto.so.3 \
+  /lib/x86_64-linux-gnu/libfftw3f.so.3 \
+  /lib/x86_64-linux-gnu/libfftw3f_threads.so.3 \
   /lib/x86_64-linux-gnu/liblzma.so.5 \
   /lib/x86_64-linux-gnu/libm.so.6 \
   /lib/x86_64-linux-gnu/libmvec.so.1 \
@@ -1335,6 +1337,7 @@ lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: /lib/x86_64-linux-gnu/libboos
   /usr/lib/x86_64-linux-gnu/libfmt.so.10.1.0 \
   /usr/lib/x86_64-linux-gnu/libgmp.so \
   /usr/lib/x86_64-linux-gnu/libgmpxx.so \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
   /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0 \
   /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
   /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1 \
@@ -1348,6 +1351,8 @@ lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0:
 /usr/lib/x86_64-linux-gnu/libvolk.so.3.1.2:
 
 /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0:
+
+/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0:
 
 /usr/lib/x86_64-linux-gnu/libgmp.so:
 
@@ -1390,6 +1395,8 @@ lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0:
 /lib/x86_64-linux-gnu/libm.so.6:
 
 /lib/x86_64-linux-gnu/liblzma.so.5:
+
+/lib/x86_64-linux-gnu/libfftw3f_threads.so.3:
 
 /lib/x86_64-linux-gnu/libcrypto.so.3:
 
@@ -2014,6 +2021,8 @@ lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0:
 /usr/include/boost/mpl/bool_fwd.hpp:
 
 /usr/include/c++/14/bits/stl_bvector.h:
+
+/lib/x86_64-linux-gnu/libfftw3f.so.3:
 
 /usr/include/boost/mpl/bind_fwd.hpp:
 

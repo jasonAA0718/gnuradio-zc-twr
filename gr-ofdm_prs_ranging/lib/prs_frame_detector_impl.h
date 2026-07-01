@@ -43,6 +43,7 @@ private:
     int d_min_frame_gap;
     std::vector<gr_complex> d_coarse;
     std::vector<gr_complex> d_buffer;
+    size_t d_next_scan_index;
     uint64_t d_buffer_abs_start;
     uint64_t d_total_seen;
     uint64_t d_next_frame_id;
@@ -53,6 +54,7 @@ private:
     double d_rx_time_frac;
 
     void update_rx_time_tags(uint64_t abs_start, uint64_t abs_stop);
+    float coarse_sync_metric(size_t coarse_index) const;
     bool find_frame(size_t& frame_start_index, size_t& coarse_index, float& metric);
     void publish_frame(size_t frame_start_index, size_t coarse_index, float metric);
 };

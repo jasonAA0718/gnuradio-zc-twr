@@ -179,7 +179,7 @@ blocks:
     coordinate: [1256, 256.0]
     rotation: 0
     state: enabled
-- name: uhd_usrp_source_0
+- name: uhd_usrp_source_0_0
   id: uhd_usrp_source
   parameters:
     affinity: ''
@@ -354,8 +354,8 @@ blocks:
     dc_offs_enb7: default
     dc_offs_enb8: default
     dc_offs_enb9: default
-    dev_addr: '""'
-    dev_args: ''
+    dev_addr: '"serial=34D0563"'
+    dev_args: '"recv_buff_size=20000000,num_recv_frames=700"'
     gain0: rx_gain
     gain1: '0'
     gain10: '0'
@@ -586,7 +586,7 @@ blocks:
     rx_agc8: Default
     rx_agc9: Default
     samp_rate: samp_rate
-    sd_spec0: A:A
+    sd_spec0: A:B
     sd_spec1: ''
     sd_spec2: ''
     sd_spec3: ''
@@ -598,7 +598,7 @@ blocks:
     start_time: '-1.0'
     stream_args: ''
     stream_chans: '[]'
-    sync: none
+    sync: sync
     time_source0: ''
     time_source1: ''
     time_source2: ''
@@ -612,7 +612,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [120, 248.0]
+    coordinate: [104, 236.0]
     rotation: 0
     state: enabled
 
@@ -621,7 +621,7 @@ connections:
 - [prs_fft_receiver_0, symbols_out, prs_channel_estimator_0, symbols_in]
 - [prs_frame_detector_0, frame_out, prs_fft_receiver_0, frame_in]
 - [prs_phase_slope_estimator_0, measurement_out, prs_csv_logger_0, measurement_in]
-- [uhd_usrp_source_0, '0', prs_frame_detector_0, '0']
+- [uhd_usrp_source_0_0, '0', prs_frame_detector_0, '0']
 
 metadata:
   file_format: 1

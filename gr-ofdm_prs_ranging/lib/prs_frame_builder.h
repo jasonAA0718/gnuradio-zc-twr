@@ -24,6 +24,7 @@ struct prs_frame_config {
     int preamble_len;
     int preamble_repeats;
     int coarse_sync_len;
+    int payload_len;
     int zero_guard_len;
     int tail_guard_len;
     float tx_amp;
@@ -34,6 +35,8 @@ struct prs_frame {
     std::vector<gr_complex> samples;
     int prs_start = 0;
     int prs_len = 0;
+    int payload_start = 0;
+    int payload_len = 0;
 };
 
 class prs_frame_builder

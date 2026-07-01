@@ -15,8 +15,8 @@ namespace ofdm_prs_ranging {
 BOOST_AUTO_TEST_CASE(test_prs_timed_burst_source_frame_geometry)
 {
     auto src = prs_timed_burst_source::make();
-    BOOST_CHECK_EQUAL(src->frame_len(), 23319);
-    BOOST_CHECK_EQUAL(src->prs_start(), 1000 + 128 * 16 + 839);
+    BOOST_CHECK_EQUAL(src->frame_len(), 23359);
+    BOOST_CHECK_EQUAL(src->prs_start(), 1000 + 128 * 16 + 839 + 40);
     BOOST_CHECK_EQUAL(src->prs_len(), 16 * (1024 + 128));
 }
 

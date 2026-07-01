@@ -43,6 +43,12 @@
 },
 {
   "directory": "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -DFMT_SHARED -DGR_CTRLPORT -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dgnuradio_ofdm_prs_ranging_EXPORTS -I/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/../include  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -Wignored-qualifiers -Wcast-qual -O3 -DNDEBUG -std=c++17 -fPIC -o CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.o -c /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/prs_payload_codec.cc",
+  "file": "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/prs_payload_codec.cc",
+  "output": "lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.o"
+},
+{
+  "directory": "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib",
   "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -DFMT_SHARED -DGR_CTRLPORT -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dgnuradio_ofdm_prs_ranging_EXPORTS -I/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/../include  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -Wignored-qualifiers -Wcast-qual -O3 -DNDEBUG -std=c++17 -fPIC -o CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_receiver_utils.cc.o -c /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/prs_receiver_utils.cc",
   "file": "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/lib/prs_receiver_utils.cc",
   "output": "lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_receiver_utils.cc.o"

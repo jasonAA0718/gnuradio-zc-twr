@@ -75,22 +75,22 @@ class prs_rx_estimator_10M_1399(gr.top_block, Qt.QWidget):
         self._rx_gain_range = qtgui.Range(0, 1, 0.01, 0.2, 200)
         self._rx_gain_win = qtgui.RangeWidget(self._rx_gain_range, self.set_rx_gain, "RX Gain", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._rx_gain_win)
-        self.uhd_usrp_source_0 = uhd.usrp_source(
-            ",".join(("", '')),
+        self.uhd_usrp_source_0_0 = uhd.usrp_source(
+            ",".join(("serial=34D0563", "recv_buff_size=20000000,num_recv_frames=700")),
             uhd.stream_args(
                 cpu_format="fc32",
                 args='',
                 channels=list(range(0,1)),
             ),
         )
-        self.uhd_usrp_source_0.set_subdev_spec('A:A', 0)
-        self.uhd_usrp_source_0.set_samp_rate(samp_rate)
-        # No synchronization enforced.
+        self.uhd_usrp_source_0_0.set_subdev_spec('A:B', 0)
+        self.uhd_usrp_source_0_0.set_samp_rate(samp_rate)
+        self.uhd_usrp_source_0_0.set_time_unknown_pps(uhd.time_spec(0))
 
-        self.uhd_usrp_source_0.set_center_freq(center_freq, 0)
-        self.uhd_usrp_source_0.set_antenna("RX2", 0)
-        self.uhd_usrp_source_0.set_bandwidth(samp_rate, 0)
-        self.uhd_usrp_source_0.set_normalized_gain(rx_gain, 0)
+        self.uhd_usrp_source_0_0.set_center_freq(center_freq, 0)
+        self.uhd_usrp_source_0_0.set_antenna("RX2", 0)
+        self.uhd_usrp_source_0_0.set_bandwidth(samp_rate, 0)
+        self.uhd_usrp_source_0_0.set_normalized_gain(rx_gain, 0)
         self.prs_phase_slope_estimator_0 = ofdm_prs_ranging.prs_phase_slope_estimator(samp_rate, 1024, 600, 1.0)
         self.prs_frame_detector_0 = ofdm_prs_ranging.prs_frame_detector(samp_rate, 1024, 128, 600, 16, 128, 16, 839, 1000, 1000, 0.35, 10000)
         self.prs_fft_receiver_0 = ofdm_prs_ranging.prs_fft_receiver(samp_rate, 1024, 128, 600, 16)
@@ -105,7 +105,7 @@ class prs_rx_estimator_10M_1399(gr.top_block, Qt.QWidget):
         self.msg_connect((self.prs_fft_receiver_0, 'symbols_out'), (self.prs_channel_estimator_0, 'symbols_in'))
         self.msg_connect((self.prs_frame_detector_0, 'frame_out'), (self.prs_fft_receiver_0, 'frame_in'))
         self.msg_connect((self.prs_phase_slope_estimator_0, 'measurement_out'), (self.prs_csv_logger_0, 'measurement_in'))
-        self.connect((self.uhd_usrp_source_0, 0), (self.prs_frame_detector_0, 0))
+        self.connect((self.uhd_usrp_source_0_0, 0), (self.prs_frame_detector_0, 0))
 
 
     def closeEvent(self, event):
@@ -121,22 +121,22 @@ class prs_rx_estimator_10M_1399(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.uhd_usrp_source_0.set_samp_rate(self.samp_rate)
-        self.uhd_usrp_source_0.set_bandwidth(self.samp_rate, 0)
+        self.uhd_usrp_source_0_0.set_samp_rate(self.samp_rate)
+        self.uhd_usrp_source_0_0.set_bandwidth(self.samp_rate, 0)
 
     def get_rx_gain(self):
         return self.rx_gain
 
     def set_rx_gain(self, rx_gain):
         self.rx_gain = rx_gain
-        self.uhd_usrp_source_0.set_normalized_gain(self.rx_gain, 0)
+        self.uhd_usrp_source_0_0.set_normalized_gain(self.rx_gain, 0)
 
     def get_center_freq(self):
         return self.center_freq
 
     def set_center_freq(self, center_freq):
         self.center_freq = center_freq
-        self.uhd_usrp_source_0.set_center_freq(self.center_freq, 0)
+        self.uhd_usrp_source_0_0.set_center_freq(self.center_freq, 0)
 
 
 
