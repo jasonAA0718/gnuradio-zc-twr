@@ -1,6 +1,7 @@
 ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o \
+  CMakeFiles/ofdm_prs_ranging_python.dir/prs_acquisition_logger_python.cc.o \
   CMakeFiles/ofdm_prs_ranging_python.dir/prs_frame_detector_python.cc.o \
   CMakeFiles/ofdm_prs_ranging_python.dir/prs_fft_receiver_python.cc.o \
   CMakeFiles/ofdm_prs_ranging_python.dir/prs_channel_estimator_python.cc.o \
@@ -9,6 +10,10 @@ ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: \
   CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o \
   CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o \
   CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o \
+  CMakeFiles/ofdm_prs_ranging_python.dir/zc_manual_ping_source_python.cc.o \
+  CMakeFiles/ofdm_prs_ranging_python.dir/zc_peak_detector_python.cc.o \
+  CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_calculator_python.cc.o \
+  CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_responder_python.cc.o \
   CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o \
   /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.83.0 \
   /usr/lib/x86_64-linux-gnu/libboost_system.so.1.83.0 \
@@ -57,6 +62,8 @@ ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: \
 
 /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o:
 
+CMakeFiles/ofdm_prs_ranging_python.dir/prs_acquisition_logger_python.cc.o:
+
 CMakeFiles/ofdm_prs_ranging_python.dir/prs_frame_detector_python.cc.o:
 
 CMakeFiles/ofdm_prs_ranging_python.dir/prs_fft_receiver_python.cc.o:
@@ -72,6 +79,14 @@ CMakeFiles/ofdm_prs_ranging_python.dir/prs_ssrtt_solver_python.cc.o:
 CMakeFiles/ofdm_prs_ranging_python.dir/prs_csv_logger_python.cc.o:
 
 CMakeFiles/ofdm_prs_ranging_python.dir/prs_timed_burst_source_python.cc.o:
+
+CMakeFiles/ofdm_prs_ranging_python.dir/zc_manual_ping_source_python.cc.o:
+
+CMakeFiles/ofdm_prs_ranging_python.dir/zc_peak_detector_python.cc.o:
+
+CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_calculator_python.cc.o:
+
+CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_responder_python.cc.o:
 
 CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o:
 

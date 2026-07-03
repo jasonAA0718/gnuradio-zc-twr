@@ -199,6 +199,30 @@ ofdm_prs_ranging_docstrings/fast:
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_docstrings.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_docstrings.dir/build
 .PHONY : ofdm_prs_ranging_docstrings/fast
 
+prs_acquisition_logger_python.o: prs_acquisition_logger_python.cc.o
+.PHONY : prs_acquisition_logger_python.o
+
+# target to build an object file
+prs_acquisition_logger_python.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_acquisition_logger_python.cc.o
+.PHONY : prs_acquisition_logger_python.cc.o
+
+prs_acquisition_logger_python.i: prs_acquisition_logger_python.cc.i
+.PHONY : prs_acquisition_logger_python.i
+
+# target to preprocess a source file
+prs_acquisition_logger_python.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_acquisition_logger_python.cc.i
+.PHONY : prs_acquisition_logger_python.cc.i
+
+prs_acquisition_logger_python.s: prs_acquisition_logger_python.cc.s
+.PHONY : prs_acquisition_logger_python.s
+
+# target to generate assembly for a file
+prs_acquisition_logger_python.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/prs_acquisition_logger_python.cc.s
+.PHONY : prs_acquisition_logger_python.cc.s
+
 prs_channel_estimator_python.o: prs_channel_estimator_python.cc.o
 .PHONY : prs_channel_estimator_python.o
 
@@ -415,6 +439,102 @@ python_bindings.cc.s:
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.s
 .PHONY : python_bindings.cc.s
 
+zc_manual_ping_source_python.o: zc_manual_ping_source_python.cc.o
+.PHONY : zc_manual_ping_source_python.o
+
+# target to build an object file
+zc_manual_ping_source_python.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_manual_ping_source_python.cc.o
+.PHONY : zc_manual_ping_source_python.cc.o
+
+zc_manual_ping_source_python.i: zc_manual_ping_source_python.cc.i
+.PHONY : zc_manual_ping_source_python.i
+
+# target to preprocess a source file
+zc_manual_ping_source_python.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_manual_ping_source_python.cc.i
+.PHONY : zc_manual_ping_source_python.cc.i
+
+zc_manual_ping_source_python.s: zc_manual_ping_source_python.cc.s
+.PHONY : zc_manual_ping_source_python.s
+
+# target to generate assembly for a file
+zc_manual_ping_source_python.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_manual_ping_source_python.cc.s
+.PHONY : zc_manual_ping_source_python.cc.s
+
+zc_peak_detector_python.o: zc_peak_detector_python.cc.o
+.PHONY : zc_peak_detector_python.o
+
+# target to build an object file
+zc_peak_detector_python.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_peak_detector_python.cc.o
+.PHONY : zc_peak_detector_python.cc.o
+
+zc_peak_detector_python.i: zc_peak_detector_python.cc.i
+.PHONY : zc_peak_detector_python.i
+
+# target to preprocess a source file
+zc_peak_detector_python.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_peak_detector_python.cc.i
+.PHONY : zc_peak_detector_python.cc.i
+
+zc_peak_detector_python.s: zc_peak_detector_python.cc.s
+.PHONY : zc_peak_detector_python.s
+
+# target to generate assembly for a file
+zc_peak_detector_python.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_peak_detector_python.cc.s
+.PHONY : zc_peak_detector_python.cc.s
+
+zc_rtt_calculator_python.o: zc_rtt_calculator_python.cc.o
+.PHONY : zc_rtt_calculator_python.o
+
+# target to build an object file
+zc_rtt_calculator_python.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_calculator_python.cc.o
+.PHONY : zc_rtt_calculator_python.cc.o
+
+zc_rtt_calculator_python.i: zc_rtt_calculator_python.cc.i
+.PHONY : zc_rtt_calculator_python.i
+
+# target to preprocess a source file
+zc_rtt_calculator_python.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_calculator_python.cc.i
+.PHONY : zc_rtt_calculator_python.cc.i
+
+zc_rtt_calculator_python.s: zc_rtt_calculator_python.cc.s
+.PHONY : zc_rtt_calculator_python.s
+
+# target to generate assembly for a file
+zc_rtt_calculator_python.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_calculator_python.cc.s
+.PHONY : zc_rtt_calculator_python.cc.s
+
+zc_rtt_responder_python.o: zc_rtt_responder_python.cc.o
+.PHONY : zc_rtt_responder_python.o
+
+# target to build an object file
+zc_rtt_responder_python.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_responder_python.cc.o
+.PHONY : zc_rtt_responder_python.cc.o
+
+zc_rtt_responder_python.i: zc_rtt_responder_python.cc.i
+.PHONY : zc_rtt_responder_python.i
+
+# target to preprocess a source file
+zc_rtt_responder_python.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_responder_python.cc.i
+.PHONY : zc_rtt_responder_python.cc.i
+
+zc_rtt_responder_python.s: zc_rtt_responder_python.cc.s
+.PHONY : zc_rtt_responder_python.s
+
+# target to generate assembly for a file
+zc_rtt_responder_python.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/build.make python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/zc_rtt_responder_python.cc.s
+.PHONY : zc_rtt_responder_python.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -430,6 +550,9 @@ help:
 	@echo "... test"
 	@echo "... ofdm_prs_ranging_docstrings"
 	@echo "... ofdm_prs_ranging_python"
+	@echo "... prs_acquisition_logger_python.o"
+	@echo "... prs_acquisition_logger_python.i"
+	@echo "... prs_acquisition_logger_python.s"
 	@echo "... prs_channel_estimator_python.o"
 	@echo "... prs_channel_estimator_python.i"
 	@echo "... prs_channel_estimator_python.s"
@@ -457,6 +580,18 @@ help:
 	@echo "... python_bindings.o"
 	@echo "... python_bindings.i"
 	@echo "... python_bindings.s"
+	@echo "... zc_manual_ping_source_python.o"
+	@echo "... zc_manual_ping_source_python.i"
+	@echo "... zc_manual_ping_source_python.s"
+	@echo "... zc_peak_detector_python.o"
+	@echo "... zc_peak_detector_python.i"
+	@echo "... zc_peak_detector_python.s"
+	@echo "... zc_rtt_calculator_python.o"
+	@echo "... zc_rtt_calculator_python.i"
+	@echo "... zc_rtt_calculator_python.s"
+	@echo "... zc_rtt_responder_python.o"
+	@echo "... zc_rtt_responder_python.i"
+	@echo "... zc_rtt_responder_python.s"
 .PHONY : help
 
 

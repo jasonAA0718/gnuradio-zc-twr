@@ -13,6 +13,7 @@ include(GrPlatform) #define LIB_SUFFIX
 
 list(APPEND ofdm_prs_ranging_sources
     prs_burst_scheduler.cc
+    prs_acquisition_logger_impl.cc
     prs_channel_estimator_impl.cc
     prs_csv_logger_impl.cc
     prs_fft_receiver_impl.cc
@@ -23,7 +24,12 @@ list(APPEND ofdm_prs_ranging_sources
     prs_receiver_utils.cc
     prs_ssrtt_responder_impl.cc
     prs_ssrtt_solver_impl.cc
-    prs_timed_burst_source_impl.cc)
+    prs_timed_burst_source_impl.cc
+    zc_manual_ping_source_impl.cc
+    zc_packet_utils.cc
+    zc_peak_detector_impl.cc
+    zc_rtt_calculator_impl.cc
+    zc_rtt_responder_impl.cc)
 
 set(ofdm_prs_ranging_sources
     "${ofdm_prs_ranging_sources}"
@@ -75,6 +81,8 @@ include(GrTest)
 
 list(APPEND test_ofdm_prs_ranging_sources
     qa_prs_timed_burst_source.cc
+    qa_zc_packet_utils.cc
+    qa_zc_peak_detector.cc
 )
 # Anything we need to link to for the unit tests go here
 list(APPEND GR_TEST_TARGET_DEPS gnuradio-ofdm_prs_ranging)
@@ -89,5 +97,9 @@ foreach(qa_file ${test_ofdm_prs_ranging_sources})
     if(qa_file STREQUAL "qa_prs_timed_burst_source.cc")
         target_sources("ofdm_prs_ranging_${qa_file}" PRIVATE
                        ${CMAKE_CURRENT_SOURCE_DIR}/prs_payload_codec.cc)
+    endif()
+    if(qa_file STREQUAL "qa_zc_packet_utils.cc")
+        target_sources("ofdm_prs_ranging_${qa_file}" PRIVATE
+                       ${CMAKE_CURRENT_SOURCE_DIR}/zc_packet_utils.cc)
     endif()
 endforeach(qa_file)

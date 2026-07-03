@@ -37,6 +37,8 @@ class prs_ssrtt_initiator_10M_1399(gr.top_block):
         # Variables
         ##################################################
         self.samp_rate = samp_rate = 30e6
+        self.premble_rep = premble_rep = 8
+        self.premble_length = premble_length = 256
         self.center_freq = center_freq = 1399e6
 
         ##################################################
@@ -58,6 +60,7 @@ class prs_ssrtt_initiator_10M_1399(gr.top_block):
         self.uhd_usrp_source_0_0.set_center_freq(center_freq, 0)
         self.uhd_usrp_source_0_0.set_antenna("RX2", 0)
         self.uhd_usrp_source_0_0.set_bandwidth(samp_rate, 0)
+        self.uhd_usrp_source_0_0.set_rx_agc(False, 0)
         self.uhd_usrp_source_0_0.set_normalized_gain(1, 0)
         self.uhd_usrp_sink_0 = uhd.usrp_sink(
             ",".join(("serial=34D0563", '')),
@@ -70,7 +73,7 @@ class prs_ssrtt_initiator_10M_1399(gr.top_block):
         )
         self.uhd_usrp_sink_0.set_subdev_spec('A:A', 0)
         self.uhd_usrp_sink_0.set_samp_rate(samp_rate)
-        # No synchronization enforced.
+        self.uhd_usrp_sink_0.set_time_unknown_pps(uhd.time_spec(0))
 
         self.uhd_usrp_sink_0.set_center_freq(center_freq, 0)
         self.uhd_usrp_sink_0.set_antenna("TX/RX", 0)
@@ -79,15 +82,16 @@ class prs_ssrtt_initiator_10M_1399(gr.top_block):
         self.prs_ssrtt_solver_0 = ofdm_prs_ranging.prs_ssrtt_solver(samp_rate)
         self.prs_source = ofdm_prs_ranging.prs_timed_burst_source(
             samp_rate, 1024, 128, 600, 16,
-            128, 16, 839,
+            premble_length, premble_rep, 839,
             1000, 1000, 0.5,
             0.1, 0.2, 13990001, 1,
             True)
         self.prs_phase_slope_estimator_0 = ofdm_prs_ranging.prs_phase_slope_estimator(samp_rate, 1024, 600, 1.0)
-        self.prs_frame_detector_0 = ofdm_prs_ranging.prs_frame_detector(samp_rate, 1024, 128, 600, 16, 128, 16, 839, 1000, 1000, 0.35, 10000)
+        self.prs_frame_detector_0 = ofdm_prs_ranging.prs_frame_detector(samp_rate, 1024, 128, 600, 16, premble_length, premble_rep, 839, 1000, 1000, 0.35, 10000)
         self.prs_fft_receiver_0 = ofdm_prs_ranging.prs_fft_receiver(samp_rate, 1024, 128, 600, 16)
-        self.prs_csv_logger_0 = ofdm_prs_ranging.prs_csv_logger("CSV/prs_ssrtt_initiator32m.csv", 1)
+        self.prs_csv_logger_0 = ofdm_prs_ranging.prs_csv_logger("CSV/OBS/preamble512_5ndD.csv", 1)
         self.prs_channel_estimator_0 = ofdm_prs_ranging.prs_channel_estimator(samp_rate, 1024, 600, 16, 13990001)
+        self.prs_acquisition_logger_0 = ofdm_prs_ranging.prs_acquisition_logger("CSV/acq/initiator_acquisition.csv", "initiator", 1)
         self.blocks_message_strobe_0 = blocks.message_strobe(pmt.PMT_T, 1000)
 
 
@@ -97,6 +101,7 @@ class prs_ssrtt_initiator_10M_1399(gr.top_block):
         self.msg_connect((self.blocks_message_strobe_0, 'strobe'), (self.prs_source, 'trigger'))
         self.msg_connect((self.prs_channel_estimator_0, 'channel_out'), (self.prs_phase_slope_estimator_0, 'channel_in'))
         self.msg_connect((self.prs_fft_receiver_0, 'symbols_out'), (self.prs_channel_estimator_0, 'symbols_in'))
+        self.msg_connect((self.prs_frame_detector_0, 'frame_out'), (self.prs_acquisition_logger_0, 'frame_in'))
         self.msg_connect((self.prs_frame_detector_0, 'frame_out'), (self.prs_fft_receiver_0, 'frame_in'))
         self.msg_connect((self.prs_phase_slope_estimator_0, 'measurement_out'), (self.prs_ssrtt_solver_0, 'measurement_in'))
         self.msg_connect((self.prs_source, 'tx_time_out'), (self.prs_ssrtt_solver_0, 'tx_time_in'))
@@ -115,6 +120,18 @@ class prs_ssrtt_initiator_10M_1399(gr.top_block):
         self.uhd_usrp_sink_0.set_bandwidth(self.samp_rate, 0)
         self.uhd_usrp_source_0_0.set_samp_rate(self.samp_rate)
         self.uhd_usrp_source_0_0.set_bandwidth(self.samp_rate, 0)
+
+    def get_premble_rep(self):
+        return self.premble_rep
+
+    def set_premble_rep(self, premble_rep):
+        self.premble_rep = premble_rep
+
+    def get_premble_length(self):
+        return self.premble_length
+
+    def set_premble_length(self, premble_length):
+        self.premble_length = premble_length
 
     def get_center_freq(self):
         return self.center_freq

@@ -7,6 +7,7 @@
 #
 
 install(FILES
+    ofdm_prs_ranging_prs_acquisition_logger.block.yml
     ofdm_prs_ranging_prs_timed_burst_source.block.yml
     ofdm_prs_ranging_prs_frame_detector.block.yml
     ofdm_prs_ranging_prs_fft_receiver.block.yml
@@ -14,4 +15,8 @@ install(FILES
     ofdm_prs_ranging_prs_phase_slope_estimator.block.yml
     ofdm_prs_ranging_prs_ssrtt_responder.block.yml
     ofdm_prs_ranging_prs_ssrtt_solver.block.yml
-    ofdm_prs_ranging_prs_csv_logger.block.yml DESTINATION share/gnuradio/grc/blocks)
+    ofdm_prs_ranging_prs_csv_logger.block.yml
+    ofdm_prs_ranging_zc_manual_ping_source.block.yml
+    ofdm_prs_ranging_zc_peak_detector.block.yml
+    ofdm_prs_ranging_zc_rtt_calculator.block.yml
+    ofdm_prs_ranging_zc_rtt_responder.block.yml DESTINATION share/gnuradio/grc/blocks)

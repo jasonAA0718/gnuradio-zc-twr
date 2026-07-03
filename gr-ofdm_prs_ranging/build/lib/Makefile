@@ -199,6 +199,58 @@ ofdm_prs_ranging_qa_prs_timed_burst_source.cc/fast:
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/build
 .PHONY : ofdm_prs_ranging_qa_prs_timed_burst_source.cc/fast
 
+# Convenience name for target.
+lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/rule:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/rule
+.PHONY : lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/rule
+
+# Convenience name for target.
+ofdm_prs_ranging_qa_zc_packet_utils.cc: lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/rule
+.PHONY : ofdm_prs_ranging_qa_zc_packet_utils.cc
+
+# fast build rule for target.
+ofdm_prs_ranging_qa_zc_packet_utils.cc/fast:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build
+.PHONY : ofdm_prs_ranging_qa_zc_packet_utils.cc/fast
+
+# Convenience name for target.
+lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/rule:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/rule
+.PHONY : lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/rule
+
+# Convenience name for target.
+ofdm_prs_ranging_qa_zc_peak_detector.cc: lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/rule
+.PHONY : ofdm_prs_ranging_qa_zc_peak_detector.cc
+
+# fast build rule for target.
+ofdm_prs_ranging_qa_zc_peak_detector.cc/fast:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/build
+.PHONY : ofdm_prs_ranging_qa_zc_peak_detector.cc/fast
+
+prs_acquisition_logger_impl.o: prs_acquisition_logger_impl.cc.o
+.PHONY : prs_acquisition_logger_impl.o
+
+# target to build an object file
+prs_acquisition_logger_impl.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_acquisition_logger_impl.cc.o
+.PHONY : prs_acquisition_logger_impl.cc.o
+
+prs_acquisition_logger_impl.i: prs_acquisition_logger_impl.cc.i
+.PHONY : prs_acquisition_logger_impl.i
+
+# target to preprocess a source file
+prs_acquisition_logger_impl.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_acquisition_logger_impl.cc.i
+.PHONY : prs_acquisition_logger_impl.cc.i
+
+prs_acquisition_logger_impl.s: prs_acquisition_logger_impl.cc.s
+.PHONY : prs_acquisition_logger_impl.s
+
+# target to generate assembly for a file
+prs_acquisition_logger_impl.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_acquisition_logger_impl.cc.s
+.PHONY : prs_acquisition_logger_impl.cc.s
+
 prs_burst_scheduler.o: prs_burst_scheduler.cc.o
 .PHONY : prs_burst_scheduler.o
 
@@ -514,6 +566,177 @@ qa_prs_timed_burst_source.cc.s:
 	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_burst_source.cc.s
 .PHONY : qa_prs_timed_burst_source.cc.s
 
+qa_zc_packet_utils.o: qa_zc_packet_utils.cc.o
+.PHONY : qa_zc_packet_utils.o
+
+# target to build an object file
+qa_zc_packet_utils.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/qa_zc_packet_utils.cc.o
+.PHONY : qa_zc_packet_utils.cc.o
+
+qa_zc_packet_utils.i: qa_zc_packet_utils.cc.i
+.PHONY : qa_zc_packet_utils.i
+
+# target to preprocess a source file
+qa_zc_packet_utils.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/qa_zc_packet_utils.cc.i
+.PHONY : qa_zc_packet_utils.cc.i
+
+qa_zc_packet_utils.s: qa_zc_packet_utils.cc.s
+.PHONY : qa_zc_packet_utils.s
+
+# target to generate assembly for a file
+qa_zc_packet_utils.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/qa_zc_packet_utils.cc.s
+.PHONY : qa_zc_packet_utils.cc.s
+
+qa_zc_peak_detector.o: qa_zc_peak_detector.cc.o
+.PHONY : qa_zc_peak_detector.o
+
+# target to build an object file
+qa_zc_peak_detector.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/qa_zc_peak_detector.cc.o
+.PHONY : qa_zc_peak_detector.cc.o
+
+qa_zc_peak_detector.i: qa_zc_peak_detector.cc.i
+.PHONY : qa_zc_peak_detector.i
+
+# target to preprocess a source file
+qa_zc_peak_detector.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/qa_zc_peak_detector.cc.i
+.PHONY : qa_zc_peak_detector.cc.i
+
+qa_zc_peak_detector.s: qa_zc_peak_detector.cc.s
+.PHONY : qa_zc_peak_detector.s
+
+# target to generate assembly for a file
+qa_zc_peak_detector.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/qa_zc_peak_detector.cc.s
+.PHONY : qa_zc_peak_detector.cc.s
+
+zc_manual_ping_source_impl.o: zc_manual_ping_source_impl.cc.o
+.PHONY : zc_manual_ping_source_impl.o
+
+# target to build an object file
+zc_manual_ping_source_impl.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_manual_ping_source_impl.cc.o
+.PHONY : zc_manual_ping_source_impl.cc.o
+
+zc_manual_ping_source_impl.i: zc_manual_ping_source_impl.cc.i
+.PHONY : zc_manual_ping_source_impl.i
+
+# target to preprocess a source file
+zc_manual_ping_source_impl.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_manual_ping_source_impl.cc.i
+.PHONY : zc_manual_ping_source_impl.cc.i
+
+zc_manual_ping_source_impl.s: zc_manual_ping_source_impl.cc.s
+.PHONY : zc_manual_ping_source_impl.s
+
+# target to generate assembly for a file
+zc_manual_ping_source_impl.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_manual_ping_source_impl.cc.s
+.PHONY : zc_manual_ping_source_impl.cc.s
+
+zc_packet_utils.o: zc_packet_utils.cc.o
+.PHONY : zc_packet_utils.o
+
+# target to build an object file
+zc_packet_utils.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_packet_utils.cc.o
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/zc_packet_utils.cc.o
+.PHONY : zc_packet_utils.cc.o
+
+zc_packet_utils.i: zc_packet_utils.cc.i
+.PHONY : zc_packet_utils.i
+
+# target to preprocess a source file
+zc_packet_utils.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_packet_utils.cc.i
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/zc_packet_utils.cc.i
+.PHONY : zc_packet_utils.cc.i
+
+zc_packet_utils.s: zc_packet_utils.cc.s
+.PHONY : zc_packet_utils.s
+
+# target to generate assembly for a file
+zc_packet_utils.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_packet_utils.cc.s
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/zc_packet_utils.cc.s
+.PHONY : zc_packet_utils.cc.s
+
+zc_peak_detector_impl.o: zc_peak_detector_impl.cc.o
+.PHONY : zc_peak_detector_impl.o
+
+# target to build an object file
+zc_peak_detector_impl.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_peak_detector_impl.cc.o
+.PHONY : zc_peak_detector_impl.cc.o
+
+zc_peak_detector_impl.i: zc_peak_detector_impl.cc.i
+.PHONY : zc_peak_detector_impl.i
+
+# target to preprocess a source file
+zc_peak_detector_impl.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_peak_detector_impl.cc.i
+.PHONY : zc_peak_detector_impl.cc.i
+
+zc_peak_detector_impl.s: zc_peak_detector_impl.cc.s
+.PHONY : zc_peak_detector_impl.s
+
+# target to generate assembly for a file
+zc_peak_detector_impl.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_peak_detector_impl.cc.s
+.PHONY : zc_peak_detector_impl.cc.s
+
+zc_rtt_calculator_impl.o: zc_rtt_calculator_impl.cc.o
+.PHONY : zc_rtt_calculator_impl.o
+
+# target to build an object file
+zc_rtt_calculator_impl.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_calculator_impl.cc.o
+.PHONY : zc_rtt_calculator_impl.cc.o
+
+zc_rtt_calculator_impl.i: zc_rtt_calculator_impl.cc.i
+.PHONY : zc_rtt_calculator_impl.i
+
+# target to preprocess a source file
+zc_rtt_calculator_impl.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_calculator_impl.cc.i
+.PHONY : zc_rtt_calculator_impl.cc.i
+
+zc_rtt_calculator_impl.s: zc_rtt_calculator_impl.cc.s
+.PHONY : zc_rtt_calculator_impl.s
+
+# target to generate assembly for a file
+zc_rtt_calculator_impl.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_calculator_impl.cc.s
+.PHONY : zc_rtt_calculator_impl.cc.s
+
+zc_rtt_responder_impl.o: zc_rtt_responder_impl.cc.o
+.PHONY : zc_rtt_responder_impl.o
+
+# target to build an object file
+zc_rtt_responder_impl.cc.o:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_responder_impl.cc.o
+.PHONY : zc_rtt_responder_impl.cc.o
+
+zc_rtt_responder_impl.i: zc_rtt_responder_impl.cc.i
+.PHONY : zc_rtt_responder_impl.i
+
+# target to preprocess a source file
+zc_rtt_responder_impl.cc.i:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_responder_impl.cc.i
+.PHONY : zc_rtt_responder_impl.cc.i
+
+zc_rtt_responder_impl.s: zc_rtt_responder_impl.cc.s
+.PHONY : zc_rtt_responder_impl.s
+
+# target to generate assembly for a file
+zc_rtt_responder_impl.cc.s:
+	cd /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_responder_impl.cc.s
+.PHONY : zc_rtt_responder_impl.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -529,6 +752,11 @@ help:
 	@echo "... test"
 	@echo "... gnuradio-ofdm_prs_ranging"
 	@echo "... ofdm_prs_ranging_qa_prs_timed_burst_source.cc"
+	@echo "... ofdm_prs_ranging_qa_zc_packet_utils.cc"
+	@echo "... ofdm_prs_ranging_qa_zc_peak_detector.cc"
+	@echo "... prs_acquisition_logger_impl.o"
+	@echo "... prs_acquisition_logger_impl.i"
+	@echo "... prs_acquisition_logger_impl.s"
 	@echo "... prs_burst_scheduler.o"
 	@echo "... prs_burst_scheduler.i"
 	@echo "... prs_burst_scheduler.s"
@@ -568,6 +796,27 @@ help:
 	@echo "... qa_prs_timed_burst_source.o"
 	@echo "... qa_prs_timed_burst_source.i"
 	@echo "... qa_prs_timed_burst_source.s"
+	@echo "... qa_zc_packet_utils.o"
+	@echo "... qa_zc_packet_utils.i"
+	@echo "... qa_zc_packet_utils.s"
+	@echo "... qa_zc_peak_detector.o"
+	@echo "... qa_zc_peak_detector.i"
+	@echo "... qa_zc_peak_detector.s"
+	@echo "... zc_manual_ping_source_impl.o"
+	@echo "... zc_manual_ping_source_impl.i"
+	@echo "... zc_manual_ping_source_impl.s"
+	@echo "... zc_packet_utils.o"
+	@echo "... zc_packet_utils.i"
+	@echo "... zc_packet_utils.s"
+	@echo "... zc_peak_detector_impl.o"
+	@echo "... zc_peak_detector_impl.i"
+	@echo "... zc_peak_detector_impl.s"
+	@echo "... zc_rtt_calculator_impl.o"
+	@echo "... zc_rtt_calculator_impl.i"
+	@echo "... zc_rtt_calculator_impl.s"
+	@echo "... zc_rtt_responder_impl.o"
+	@echo "... zc_rtt_responder_impl.i"
+	@echo "... zc_rtt_responder_impl.s"
 .PHONY : help
 
 

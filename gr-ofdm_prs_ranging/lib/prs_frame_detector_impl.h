@@ -55,8 +55,14 @@ private:
 
     void update_rx_time_tags(uint64_t abs_start, uint64_t abs_stop);
     float coarse_sync_metric(size_t coarse_index) const;
-    bool find_frame(size_t& frame_start_index, size_t& coarse_index, float& metric);
-    void publish_frame(size_t frame_start_index, size_t coarse_index, float metric);
+    bool find_frame(size_t& frame_start_index,
+                    size_t& coarse_index,
+                    float& preamble_metric,
+                    float& coarse_metric);
+    void publish_frame(size_t frame_start_index,
+                       size_t coarse_index,
+                       float preamble_metric,
+                       float coarse_metric);
 };
 
 } // namespace ofdm_prs_ranging

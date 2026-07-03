@@ -10,6 +10,7 @@
 # Install public header files
 ########################################################################
 install(FILES api.h
+    prs_acquisition_logger.h
     prs_timed_burst_source.h
     prs_frame_detector.h
     prs_fft_receiver.h
@@ -17,4 +18,8 @@ install(FILES api.h
     prs_phase_slope_estimator.h
     prs_ssrtt_responder.h
     prs_ssrtt_solver.h
-    prs_csv_logger.h DESTINATION include/gnuradio/ofdm_prs_ranging)
+    prs_csv_logger.h
+    zc_manual_ping_source.h
+    zc_peak_detector.h
+    zc_rtt_calculator.h
+    zc_rtt_responder.h DESTINATION include/gnuradio/ofdm_prs_ranging)

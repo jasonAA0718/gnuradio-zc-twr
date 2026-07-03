@@ -120,7 +120,8 @@ float prs_frame_detector_impl::coarse_sync_metric(size_t coarse_index) const
 
 bool prs_frame_detector_impl::find_frame(size_t& frame_start_index,
                                          size_t& coarse_index,
-                                         float& metric)
+                                         float& preamble_metric_out,
+                                         float& coarse_metric_out)
 {
     const int flen = frame_len(d_cfg);
     const int coarse_rel = d_cfg.zero_guard_len + d_cfg.preamble_len * d_cfg.preamble_repeats;
@@ -187,7 +188,8 @@ bool prs_frame_detector_impl::find_frame(size_t& frame_start_index,
                     d_next_scan_index = p + static_cast<size_t>(d_min_frame_gap);
                     frame_start_index = start;
                     coarse_index = c;
-                    metric = m;
+                    preamble_metric_out = preamble_metric;
+                    coarse_metric_out = m;
                     return true;
                 }
             }
@@ -208,7 +210,8 @@ bool prs_frame_detector_impl::find_frame(size_t& frame_start_index,
 
 void prs_frame_detector_impl::publish_frame(size_t frame_start_index,
                                             size_t coarse_index,
-                                            float metric)
+                                            float preamble_metric,
+                                            float coarse_metric)
 {
     const int flen = frame_len(d_cfg);
     const uint64_t abs_start = d_buffer_abs_start + frame_start_index;
@@ -252,7 +255,9 @@ void prs_frame_detector_impl::publish_frame(size_t frame_start_index,
     meta = pmt::dict_add(meta, pmt::mp("absolute_sample_index"), pmt::from_uint64(abs_start));
     meta = pmt::dict_add(meta, pmt::mp("frame_start"), pmt::from_uint64(abs_start));
     meta = pmt::dict_add(meta, pmt::mp("coarse_peak"), pmt::from_uint64(coarse_abs));
-    meta = pmt::dict_add(meta, pmt::mp("peak_metric"), pmt::from_double(metric));
+    meta = pmt::dict_add(meta, pmt::mp("peak_metric"), pmt::from_double(coarse_metric));
+    meta = pmt::dict_add(meta, pmt::mp("preamble_metric"), pmt::from_double(preamble_metric));
+    meta = pmt::dict_add(meta, pmt::mp("coarse_metric"), pmt::from_double(coarse_metric));
     meta = pmt::dict_add(meta, pmt::mp("cfo"), pmt::from_double(cfo_hz));
     meta = pmt::dict_add(meta, pmt::mp("samp_rate"), pmt::from_double(d_cfg.samp_rate));
     meta = pmt::dict_add(meta, pmt::mp("fft_len"), pmt::from_long(d_cfg.fft_len));
@@ -294,9 +299,10 @@ int prs_frame_detector_impl::general_work(int noutput_items,
 
     size_t frame_start = 0;
     size_t coarse = 0;
-    float metric = 0.0f;
-    while (find_frame(frame_start, coarse, metric)) {
-        publish_frame(frame_start, coarse, metric);
+    float preamble_metric = 0.0f;
+    float coarse_metric = 0.0f;
+    while (find_frame(frame_start, coarse, preamble_metric, coarse_metric)) {
+        publish_frame(frame_start, coarse, preamble_metric, coarse_metric);
         const size_t drop = frame_start + static_cast<size_t>(frame_len(d_cfg));
         d_buffer.erase(d_buffer.begin(), d_buffer.begin() + drop);
         d_buffer_abs_start += drop;

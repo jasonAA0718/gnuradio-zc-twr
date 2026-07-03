@@ -15,6 +15,8 @@
 /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/include/gnuradio/ofdm_prs_ranging/CMakeFiles/install/strip.dir
 /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir
 /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir
+/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir
+/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir
 /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib/CMakeFiles/test.dir
 /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib/CMakeFiles/edit_cache.dir
 /home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build/lib/CMakeFiles/rebuild_cache.dir

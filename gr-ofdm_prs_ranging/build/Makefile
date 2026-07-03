@@ -211,6 +211,32 @@ ofdm_prs_ranging_qa_prs_timed_burst_source.cc/fast:
 .PHONY : ofdm_prs_ranging_qa_prs_timed_burst_source.cc/fast
 
 #=============================================================================
+# Target rules for targets named ofdm_prs_ranging_qa_zc_packet_utils.cc
+
+# Build rule for target.
+ofdm_prs_ranging_qa_zc_packet_utils.cc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ofdm_prs_ranging_qa_zc_packet_utils.cc
+.PHONY : ofdm_prs_ranging_qa_zc_packet_utils.cc
+
+# fast build rule for target.
+ofdm_prs_ranging_qa_zc_packet_utils.cc/fast:
+	$(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/build
+.PHONY : ofdm_prs_ranging_qa_zc_packet_utils.cc/fast
+
+#=============================================================================
+# Target rules for targets named ofdm_prs_ranging_qa_zc_peak_detector.cc
+
+# Build rule for target.
+ofdm_prs_ranging_qa_zc_peak_detector.cc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ofdm_prs_ranging_qa_zc_peak_detector.cc
+.PHONY : ofdm_prs_ranging_qa_zc_peak_detector.cc
+
+# fast build rule for target.
+ofdm_prs_ranging_qa_zc_peak_detector.cc/fast:
+	$(MAKE) $(MAKESILENT) -f lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/build.make lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/build
+.PHONY : ofdm_prs_ranging_qa_zc_peak_detector.cc/fast
+
+#=============================================================================
 # Target rules for targets named pygen_python_ofdm_prs_ranging_bcb9d163f96cdf0a306e276061bce95c
 
 # Build rule for target.
@@ -282,6 +308,8 @@ help:
 	@echo "... gnuradio-ofdm_prs_ranging"
 	@echo "... ofdm_prs_ranging_python"
 	@echo "... ofdm_prs_ranging_qa_prs_timed_burst_source.cc"
+	@echo "... ofdm_prs_ranging_qa_zc_packet_utils.cc"
+	@echo "... ofdm_prs_ranging_qa_zc_peak_detector.cc"
 .PHONY : help
 
 

@@ -180,6 +180,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/uninstall.dir/DependInfo.cmake"
   "lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/DependInfo.cmake"
   "lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/DependInfo.cmake"
+  "lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/DependInfo.cmake"
+  "lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/DependInfo.cmake"
   "python/ofdm_prs_ranging/CMakeFiles/pygen_python_ofdm_prs_ranging_bcb9d163f96cdf0a306e276061bce95c.dir/DependInfo.cmake"
   "python/ofdm_prs_ranging/CMakeFiles/copy_module_for_tests.dir/DependInfo.cmake"
   "python/ofdm_prs_ranging/bindings/CMakeFiles/ofdm_prs_ranging_python.dir/DependInfo.cmake"

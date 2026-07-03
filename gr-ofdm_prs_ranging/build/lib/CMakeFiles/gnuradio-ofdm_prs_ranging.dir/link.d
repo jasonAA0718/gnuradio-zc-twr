@@ -2,6 +2,7 @@ libgnuradio-ofdm_prs_ranging.so.1.0.0.0: \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_burst_scheduler.cc.o \
+  CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_acquisition_logger_impl.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_channel_estimator_impl.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_csv_logger_impl.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_fft_receiver_impl.cc.o \
@@ -13,6 +14,11 @@ libgnuradio-ofdm_prs_ranging.so.1.0.0.0: \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_responder_impl.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_solver_impl.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_timed_burst_source_impl.cc.o \
+  CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_manual_ping_source_impl.cc.o \
+  CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_packet_utils.cc.o \
+  CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_peak_detector_impl.cc.o \
+  CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_calculator_impl.cc.o \
+  CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_responder_impl.cc.o \
   /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
   /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
   /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0 \
@@ -56,6 +62,8 @@ libgnuradio-ofdm_prs_ranging.so.1.0.0.0: \
 
 CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_burst_scheduler.cc.o:
 
+CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_acquisition_logger_impl.cc.o:
+
 CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_channel_estimator_impl.cc.o:
 
 CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_csv_logger_impl.cc.o:
@@ -77,6 +85,16 @@ CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_responder_impl.cc.o:
 CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_ssrtt_solver_impl.cc.o:
 
 CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_timed_burst_source_impl.cc.o:
+
+CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_manual_ping_source_impl.cc.o:
+
+CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_packet_utils.cc.o:
+
+CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_peak_detector_impl.cc.o:
+
+CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_calculator_impl.cc.o:
+
+CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_responder_impl.cc.o:
 
 /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0:
 

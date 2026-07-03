@@ -45,6 +45,7 @@ endif()
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/gnuradio/ofdm_prs_ranging" TYPE FILE FILES
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/api.h"
+    "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_acquisition_logger.h"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_timed_burst_source.h"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_frame_detector.h"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_fft_receiver.h"
@@ -53,6 +54,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_ssrtt_responder.h"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_ssrtt_solver.h"
     "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/prs_csv_logger.h"
+    "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/zc_manual_ping_source.h"
+    "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/zc_peak_detector.h"
+    "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/zc_rtt_calculator.h"
+    "/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/include/gnuradio/ofdm_prs_ranging/zc_rtt_responder.h"
     )
 endif()
 

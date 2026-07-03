@@ -25,6 +25,7 @@ include(GrPybind)
 ########################################################################
 
 list(APPEND ofdm_prs_ranging_python_files
+    prs_acquisition_logger_python.cc
     prs_frame_detector_python.cc
     prs_fft_receiver_python.cc
     prs_channel_estimator_python.cc
@@ -33,6 +34,10 @@ list(APPEND ofdm_prs_ranging_python_files
     prs_ssrtt_solver_python.cc
     prs_csv_logger_python.cc
     prs_timed_burst_source_python.cc
+    zc_manual_ping_source_python.cc
+    zc_peak_detector_python.cc
+    zc_rtt_calculator_python.cc
+    zc_rtt_responder_python.cc
     python_bindings.cc)
 
 gr_pybind_make_oot(ofdm_prs_ranging ../../.. gr::ofdm_prs_ranging "${ofdm_prs_ranging_python_files}")
