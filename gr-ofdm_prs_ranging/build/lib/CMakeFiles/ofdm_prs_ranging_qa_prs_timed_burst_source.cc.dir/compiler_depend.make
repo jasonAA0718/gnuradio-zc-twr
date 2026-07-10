@@ -1596,9 +1596,9 @@ lib/ofdm_prs_ranging_qa_prs_timed_burst_source.cc: /lib/x86_64-linux-gnu/libboos
   /usr/lib/x86_64-linux-gnu/libfmt.so.10.1.0 \
   /usr/lib/x86_64-linux-gnu/libgmp.so \
   /usr/lib/x86_64-linux-gnu/libgmpxx.so \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0 \
   /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1 \
   /usr/lib/x86_64-linux-gnu/libvolk.so.3.1.2 \
   lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_codec.cc.o \
@@ -1612,9 +1612,9 @@ lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/prs_payload_cod
 
 /usr/lib/x86_64-linux-gnu/libvolk.so.3.1.2:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0:
 
 /usr/lib/x86_64-linux-gnu/libgmp.so:
 
@@ -3746,6 +3746,8 @@ lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_bu
 
 /usr/include/boost/preprocessor/repetition/detail/for.hpp:
 
+/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0:
+
 /usr/include/boost/predef/detail/_exception.h:
 
 /usr/include/boost/chrono/detail/system.hpp:
@@ -4011,8 +4013,6 @@ lib/CMakeFiles/ofdm_prs_ranging_qa_prs_timed_burst_source.cc.dir/qa_prs_timed_bu
 /usr/include/boost/preprocessor/list/fold_left.hpp:
 
 /usr/include/boost/test/tools/old/impl.hpp:
-
-/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 

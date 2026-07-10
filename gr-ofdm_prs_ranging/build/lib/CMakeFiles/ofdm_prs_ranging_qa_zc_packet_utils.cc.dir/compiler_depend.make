@@ -870,9 +870,9 @@ lib/ofdm_prs_ranging_qa_zc_packet_utils.cc: /lib/x86_64-linux-gnu/libc.so.6 \
   /usr/lib/x86_64-linux-gnu/libfmt.so.10.1.0 \
   /usr/lib/x86_64-linux-gnu/libgmp.so \
   /usr/lib/x86_64-linux-gnu/libgmpxx.so \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0 \
   /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1 \
   /usr/lib/x86_64-linux-gnu/libvolk.so.3.1.2 \
   lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/qa_zc_packet_utils.cc.o \
@@ -886,9 +886,9 @@ lib/CMakeFiles/ofdm_prs_ranging_qa_zc_packet_utils.cc.dir/qa_zc_packet_utils.cc.
 
 /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0:
 
 /usr/lib/x86_64-linux-gnu/libgmpxx.so:
 
@@ -1706,8 +1706,6 @@ lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0:
 
 /usr/include/boost/mpl/apply.hpp:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0:
-
 /usr/include/boost/mpl/apply_fwd.hpp:
 
 /usr/include/boost/core/no_exceptions_support.hpp:
@@ -1955,6 +1953,8 @@ lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0:
 /usr/include/boost/smart_ptr/detail/sp_has_sync_intrinsics.hpp:
 
 /usr/include/c++/14/bits/ostream_insert.h:
+
+/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0:
 
 /usr/include/boost/mpl/lambda.hpp:
 

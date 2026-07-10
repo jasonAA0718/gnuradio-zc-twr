@@ -98,9 +98,9 @@ lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: lib/CMakeFiles/ofdm_prs_ranging_qa_
 lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/compiler_depend.ts
 lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0
 lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.83.0
-lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0
-lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0
-lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0
+lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0
+lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0
+lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0
 lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.83.0
 lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.83.0
 lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1

@@ -343,9 +343,6 @@ boost_unit_test_framework_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_unit_te
 //The directory containing a CMake configuration file for fmt.
 fmt_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/fmt
 
-//The directory containing a CMake configuration file for gnuradio-fft.
-gnuradio-fft_DIR:PATH=gnuradio-fft_DIR-NOTFOUND
-
 //Value Computed by CMake
 gr-ofdm_prs_ranging_BINARY_DIR:STATIC=/home/cnsl/gnuradio-zc-twr/gr-ofdm_prs_ranging/build
 
@@ -535,7 +532,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_PYTHON:INTERNAL=/usr/bin/python33.13.3
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v1.8.1()]
 //Details about finding PythonInterp
-FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.13.3()]
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.13.3(3.7)]
 //Details about finding PythonLibs
 FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpython3.13.so][/usr/include/python3.13][v3.13.3(3.13)]
 //Details about finding Threads

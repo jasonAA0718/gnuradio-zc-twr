@@ -16355,9 +16355,9 @@ lib/libgnuradio-ofdm_prs_ranging.so: /lib/x86_64-linux-gnu/libc.so.6 \
   /usr/lib/x86_64-linux-gnu/libfmt.so.10.1.0 \
   /usr/lib/x86_64-linux-gnu/libgmp.so \
   /usr/lib/x86_64-linux-gnu/libgmpxx.so \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0 \
   /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1 \
   /usr/lib/x86_64-linux-gnu/libvolk.so.3.1.2 \
   lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_acquisition_logger_impl.cc.o \
@@ -16408,9 +16408,9 @@ lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_channel_estimator_impl.cc.o:
 
 /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0:
 
 /usr/lib/x86_64-linux-gnu/libgmp.so:
 
@@ -17434,6 +17434,8 @@ lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_payload_codec.cc.o:
 
 /usr/include/c++/14/iostream:
 
+/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0:
+
 /usr/include/boost/predef/detail/_exception.h:
 
 /usr/include/boost/core/allocator_access.hpp:
@@ -18065,8 +18067,6 @@ lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/prs_burst_scheduler.cc.o:
 /usr/include/boost/bind/detail/is_same.hpp:
 
 /usr/include/boost/smart_ptr/detail/yield_k.hpp:
-
-/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 

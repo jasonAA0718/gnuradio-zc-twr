@@ -1338,9 +1338,9 @@ lib/ofdm_prs_ranging_qa_zc_peak_detector.cc: /lib/x86_64-linux-gnu/libboost_prog
   /usr/lib/x86_64-linux-gnu/libfmt.so.10.1.0 \
   /usr/lib/x86_64-linux-gnu/libgmp.so \
   /usr/lib/x86_64-linux-gnu/libgmpxx.so \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0 \
   /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1 \
   /usr/lib/x86_64-linux-gnu/libvolk.so.3.1.2 \
   lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/qa_zc_peak_detector.cc.o \
@@ -1353,9 +1353,9 @@ lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/qa_zc_peak_detector.c
 
 /usr/lib/x86_64-linux-gnu/libvolk.so.3.1.2:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0:
 
 /usr/lib/x86_64-linux-gnu/libgmp.so:
 
@@ -2463,6 +2463,8 @@ lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/qa_zc_peak_detector.c
 
 /usr/include/boost/any/bad_any_cast.hpp:
 
+/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0:
+
 /usr/include/boost/predef/detail/_exception.h:
 
 /usr/include/boost/chrono/detail/static_assert.hpp:
@@ -3316,8 +3318,6 @@ lib/CMakeFiles/ofdm_prs_ranging_qa_zc_peak_detector.cc.dir/qa_zc_peak_detector.c
 /usr/include/boost/preprocessor/list/fold_left.hpp:
 
 /usr/include/boost/test/tools/old/impl.hpp:
-
-/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 

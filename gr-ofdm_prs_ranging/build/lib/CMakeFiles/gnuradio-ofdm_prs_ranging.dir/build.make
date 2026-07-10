@@ -368,9 +368,9 @@ lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: lib/CMakeFiles/gnuradio-ofdm_prs_ra
 lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_responder_impl.cc.o
 lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/build.make
 lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: lib/CMakeFiles/gnuradio-ofdm_prs_ranging.dir/compiler_depend.ts
-lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0
-lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0
-lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0
+lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0
+lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0
+lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0
 lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.83.0
 lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.83.0
 lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0: /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1

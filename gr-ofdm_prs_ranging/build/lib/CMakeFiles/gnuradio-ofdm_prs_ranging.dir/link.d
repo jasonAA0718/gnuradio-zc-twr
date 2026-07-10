@@ -19,9 +19,9 @@ libgnuradio-ofdm_prs_ranging.so.1.0.0.0: \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_peak_detector_impl.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_calculator_impl.cc.o \
   CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_responder_impl.cc.o \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0 \
   /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.83.0 \
   /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.83.0 \
   /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1 \
@@ -96,11 +96,11 @@ CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_calculator_impl.cc.o:
 
 CMakeFiles/gnuradio-ofdm_prs_ranging.dir/zc_rtt_responder_impl.cc.o:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0:
 
 /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.83.0:
 

@@ -20,12 +20,12 @@ ofdm_prs_ranging_python.cpython-313-x86_64-linux-gnu.so: \
   /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.83.0 \
   /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.83.0 \
   ../../../lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0 \
   /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.83.0 \
   /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.83.0 \
   /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.83.0 \
-  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0 \
+  /usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0 \
   /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1 \
   /usr/lib/x86_64-linux-gnu/libfmt.so.10.1.0 \
   /usr/lib/x86_64-linux-gnu/libgmpxx.so \
@@ -100,9 +100,9 @@ CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o:
 
 ../../../lib/libgnuradio-ofdm_prs_ranging.so.1.0.0.0:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-fft.so.3.10.12.0:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so.3.10.12.0:
 
 /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.83.0:
 
@@ -110,7 +110,7 @@ CMakeFiles/ofdm_prs_ranging_python.dir/python_bindings.cc.o:
 
 /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.83.0:
 
-/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.11.0:
+/usr/lib/x86_64-linux-gnu/libgnuradio-pmt.so.3.10.12.0:
 
 /usr/lib/x86_64-linux-gnu/libspdlog.so.1.15.1:
 
