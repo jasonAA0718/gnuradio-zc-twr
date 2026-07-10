@@ -37,16 +37,16 @@ class prs_ssrtt_initiator_10M_1399(gr.top_block):
         # Variables
         ##################################################
         self.samp_rate = samp_rate = 30e6
-        self.premble_rep = premble_rep = 8
+        self.premble_rep = premble_rep = 4
         self.premble_length = premble_length = 256
-        self.center_freq = center_freq = 1399e6
+        self.center_freq = center_freq = 1060e6
 
         ##################################################
         # Blocks
         ##################################################
 
         self.uhd_usrp_source_0_0 = uhd.usrp_source(
-            ",".join(("serial=34D0563", "recv_buff_size=20000000,num_recv_frames=700")),
+            ",".join(("serial=34D0564", "recv_buff_size=25000000,num_recv_frames=1024")),
             uhd.stream_args(
                 cpu_format="fc32",
                 args='',
@@ -61,9 +61,9 @@ class prs_ssrtt_initiator_10M_1399(gr.top_block):
         self.uhd_usrp_source_0_0.set_antenna("RX2", 0)
         self.uhd_usrp_source_0_0.set_bandwidth(samp_rate, 0)
         self.uhd_usrp_source_0_0.set_rx_agc(False, 0)
-        self.uhd_usrp_source_0_0.set_normalized_gain(1, 0)
+        self.uhd_usrp_source_0_0.set_normalized_gain(0.9, 0)
         self.uhd_usrp_sink_0 = uhd.usrp_sink(
-            ",".join(("serial=34D0563", '')),
+            ",".join(("serial=34D0564", '')),
             uhd.stream_args(
                 cpu_format="fc32",
                 args='',
@@ -78,20 +78,20 @@ class prs_ssrtt_initiator_10M_1399(gr.top_block):
         self.uhd_usrp_sink_0.set_center_freq(center_freq, 0)
         self.uhd_usrp_sink_0.set_antenna("TX/RX", 0)
         self.uhd_usrp_sink_0.set_bandwidth(samp_rate, 0)
-        self.uhd_usrp_sink_0.set_normalized_gain(1, 0)
+        self.uhd_usrp_sink_0.set_normalized_gain(0.9, 0)
         self.prs_ssrtt_solver_0 = ofdm_prs_ranging.prs_ssrtt_solver(samp_rate)
         self.prs_source = ofdm_prs_ranging.prs_timed_burst_source(
             samp_rate, 1024, 128, 600, 16,
             premble_length, premble_rep, 839,
-            1000, 1000, 0.5,
-            0.1, 0.2, 13990001, 1,
+            1000, 1000, 0.8,
+            0.01, 0.2, 13990001, 1,
             True)
         self.prs_phase_slope_estimator_0 = ofdm_prs_ranging.prs_phase_slope_estimator(samp_rate, 1024, 600, 1.0)
         self.prs_frame_detector_0 = ofdm_prs_ranging.prs_frame_detector(samp_rate, 1024, 128, 600, 16, premble_length, premble_rep, 839, 1000, 1000, 0.35, 10000)
         self.prs_fft_receiver_0 = ofdm_prs_ranging.prs_fft_receiver(samp_rate, 1024, 128, 600, 16)
-        self.prs_csv_logger_0 = ofdm_prs_ranging.prs_csv_logger("CSV/OBS/preamble512_5ndD.csv", 1)
+        self.prs_csv_logger_0 = ofdm_prs_ranging.prs_csv_logger("CSV/obs.csv", 1)
         self.prs_channel_estimator_0 = ofdm_prs_ranging.prs_channel_estimator(samp_rate, 1024, 600, 16, 13990001)
-        self.prs_acquisition_logger_0 = ofdm_prs_ranging.prs_acquisition_logger("CSV/acq/initiator_acquisition.csv", "initiator", 1)
+        self.prs_acquisition_logger_0 = ofdm_prs_ranging.prs_acquisition_logger("CSV/initiator_acquisition.csv", "initiator", 1)
         self.blocks_message_strobe_0 = blocks.message_strobe(pmt.PMT_T, 1000)
 
 

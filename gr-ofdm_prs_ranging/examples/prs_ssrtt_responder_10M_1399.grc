@@ -29,7 +29,7 @@ options:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [96, 16.0]
+    coordinate: [40, 32.0]
     rotation: 0
     state: enabled
 
@@ -38,36 +38,76 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: 1399e6
+    value: 1060e6
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [656, 16.0]
+    coordinate: [224, 104.0]
+    rotation: 0
+    state: enabled
+- name: premble_length
+  id: variable
+  parameters:
+    comment: ''
+    value: '256'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [464, 48.0]
+    rotation: 0
+    state: enabled
+- name: premble_rep
+  id: variable
+  parameters:
+    comment: ''
+    value: '4'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [592, 56.0]
     rotation: 0
     state: enabled
 - name: reply_delay_samples
   id: variable
   parameters:
     comment: ''
-    value: '500000'
+    value: int(0.05*samp_rate)
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [448, 32.0]
+    coordinate: [320, 40.0]
     rotation: 0
     state: enabled
 - name: samp_rate
   id: variable
   parameters:
     comment: ''
-    value: 10e6
+    value: 30e6
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [328, 16.0]
+    coordinate: [224, 32.0]
+    rotation: 0
+    state: enabled
+- name: prs_acquisition_logger_0
+  id: ofdm_prs_ranging_prs_acquisition_logger
+  parameters:
+    affinity: ''
+    alias: ''
+    append: '1'
+    comment: Logs every detected POLL before responder filtering
+    node: '"responder"'
+    path: '"CSV/responder_acquisition.csv"'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [576, 680.0]
     rotation: 0
     state: enabled
 - name: prs_channel_estimator_0
@@ -123,8 +163,8 @@ blocks:
     maxoutbuf: '0'
     min_frame_gap: '10000'
     minoutbuf: '0'
-    preamble_len: '128'
-    preamble_repeats: '16'
+    preamble_len: premble_length
+    preamble_repeats: premble_rep
     prs_symbols: '16'
     samp_rate: samp_rate
     tail_guard_len: '1000'
@@ -135,22 +175,6 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [296, 508.0]
-    rotation: 0
-    state: enabled
-- name: prs_acquisition_logger_0
-  id: ofdm_prs_ranging_prs_acquisition_logger
-  parameters:
-    affinity: ''
-    alias: ''
-    append: '1'
-    comment: Logs every detected POLL before responder filtering
-    node: '"responder"'
-    path: '"CSV/responder_acquisition.csv"'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [576, 680.0]
     rotation: 0
     state: enabled
 - name: prs_phase_slope_estimator_0
@@ -187,20 +211,20 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     pings_per_trigger: '1'
-    preamble_len: '128'
-    preamble_repeats: '16'
+    preamble_len: premble_length
+    preamble_repeats: premble_rep
     prs_symbols: '16'
     samp_rate: samp_rate
     seed: '13990001'
     tail_guard_len: '1000'
     tx_amp: '0.2'
-    tx_lead_time: '0.01'
+    tx_lead_time: '0.5'
     zero_guard_len: '1000'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [568, 168.0]
+    coordinate: [416, 176.0]
     rotation: 0
     state: enabled
 - name: prs_ssrtt_responder_0
@@ -331,9 +355,9 @@ blocks:
     clock_source6: ''
     clock_source7: ''
     comment: ''
-    dev_addr: '"serial=34D0564"'
+    dev_addr: '"serial=34D0563"'
     dev_args: ''
-    gain0: '0.5'
+    gain0: '0.9'
     gain1: '0'
     gain10: '0'
     gain11: '0'
@@ -480,7 +504,7 @@ blocks:
     start_time: '-1.0'
     stream_args: ''
     stream_chans: '[]'
-    sync: none
+    sync: sync
     time_source0: ''
     time_source1: ''
     time_source2: ''
@@ -672,9 +696,9 @@ blocks:
     dc_offs_enb7: default
     dc_offs_enb8: default
     dc_offs_enb9: default
-    dev_addr: '"serial=34D0564"'
+    dev_addr: '"serial=34D0563"'
     dev_args: '"recv_buff_size=20000000,num_recv_frames=700"'
-    gain0: '0.6'
+    gain0: '0.9'
     gain1: '0'
     gain10: '0'
     gain11: '0'
@@ -947,4 +971,4 @@ connections:
 
 metadata:
   file_format: 1
-  grc_version: 3.10.11.0
+  grc_version: 3.10.12.0

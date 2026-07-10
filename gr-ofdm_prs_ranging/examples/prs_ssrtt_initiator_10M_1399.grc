@@ -38,12 +38,12 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: 1399e6
+    value: 1060e6
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [360, 56.0]
+    coordinate: [352, 40.0]
     rotation: 0
     state: enabled
 - name: premble_length
@@ -55,19 +55,19 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [944, 32.0]
+    coordinate: [568, 40.0]
     rotation: 0
     state: enabled
 - name: premble_rep
   id: variable
   parameters:
     comment: ''
-    value: '8'
+    value: '4'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [800, 40.0]
+    coordinate: [456, 40.0]
     rotation: 0
     state: enabled
 - name: samp_rate
@@ -96,7 +96,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [88, 464.0]
+    coordinate: [72, 480.0]
     rotation: 0
     state: enabled
 - name: prs_acquisition_logger_0
@@ -107,7 +107,7 @@ blocks:
     append: '1'
     comment: Logs every detector output before SS-RTT filtering
     node: '"initiator"'
-    path: '"CSV/acq/initiator_acquisition.csv"'
+    path: '"CSV/initiator_acquisition.csv"'
   states:
     bus_sink: false
     bus_source: false
@@ -142,7 +142,7 @@ blocks:
     alias: ''
     append: '1'
     comment: ''
-    path: '"CSV/OBS/preamble512_5ndD.csv"'
+    path: '"CSV/obs.csv"'
   states:
     bus_sink: false
     bus_source: false
@@ -223,7 +223,7 @@ blocks:
     affinity: ''
     alias: ''
     attach_tx_time: 'True'
-    burst_period: '0.1'
+    burst_period: '0.01'
     coarse_sync_len: '839'
     comment: ''
     cp_len: '128'
@@ -238,7 +238,7 @@ blocks:
     seed: '13990001'
     tail_guard_len: '1000'
     tx_amp: '0.2'
-    tx_lead_time: '0.5'
+    tx_lead_time: '0.8'
     zero_guard_len: '1000'
   states:
     bus_sink: false
@@ -374,9 +374,9 @@ blocks:
     clock_source6: ''
     clock_source7: ''
     comment: ''
-    dev_addr: '"serial=34D0563"'
+    dev_addr: '"serial=34D0564"'
     dev_args: ''
-    gain0: '0.75'
+    gain0: '0.9'
     gain1: '0'
     gain10: '0'
     gain11: '0'
@@ -715,9 +715,9 @@ blocks:
     dc_offs_enb7: default
     dc_offs_enb8: default
     dc_offs_enb9: default
-    dev_addr: '"serial=34D0563"'
-    dev_args: '"recv_buff_size=20000000,num_recv_frames=700"'
-    gain0: '0.78'
+    dev_addr: '"serial=34D0564"'
+    dev_args: '"recv_buff_size=25000000,num_recv_frames=1024"'
+    gain0: '0.9'
     gain1: '0'
     gain10: '0'
     gain11: '0'
